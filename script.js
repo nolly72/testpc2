@@ -1,69 +1,9 @@
-// --- 1. ЛОГИКА АССИСТЕНТА (Исправленная) ---
-const chatWindow = document.getElementById('chatWindow');
-const chatBody = document.getElementById('chatBody');
-
-// Функция открытия/закрытия
-function toggleChat() {
-    if (chatWindow.style.display === 'none' || chatWindow.style.display === '') {
-        chatWindow.style.display = 'flex';
-    } else {
-        chatWindow.style.display = 'none';
-    }
-}
-
-// Функция ответов
-function askAI(id) {
-    // Получаем текст вопроса из нажатой кнопки
-    const buttons = document.querySelectorAll('.ai-questions button');
-    const userText = buttons[id-1].innerText;
-    
-    // Выводим сообщение пользователя
-    addMessage(userText, 'user');
-
-    let botResponse = "";
-    switch(id) {
-        case 1: botResponse = "Сейчас свободно 5 мест в Standard и 2 в VIP. Успей занять!"; break;
-        case 2: botResponse = "Именинникам дарим +3 часа к любому пакету при показе паспорта!"; break;
-        case 3: botResponse = "В VIP стоят RTX 4090 и i9-13900K. Это самый мощный конфиг в городе."; break;
-        case 4: botResponse = "Ночной пакет действует с 22:00 до 10:00. В VIP — 1300₽, напиток включен."; break;
-        case 5: botResponse = "Конечно! У нас на столах удобные USB-хабы для твоих мышек и наушников."; break;
-    }
-
-    // Задержка «ответа» бота для реалистичности
-    setTimeout(() => {
-        addMessage(botResponse, 'bot');
-    }, 500);
-}
-
-function addMessage(text, sender) {
-    const msg = document.createElement('div');
-    msg.style.margin = '10px 0';
-    msg.style.padding = '10px 15px';
-    msg.style.borderRadius = '12px';
-    msg.style.fontSize = '0.9rem';
-    msg.style.lineHeight = '1.4';
-
-    if (sender === 'user') {
-        msg.style.background = 'rgba(0, 243, 255, 0.1)';
-        msg.style.borderRight = '3px solid #00f3ff';
-        msg.style.textAlign = 'right';
-        msg.innerText = text;
-    } else {
-        msg.style.background = 'rgba(255, 65, 54, 0.1)';
-        msg.style.borderLeft = '3px solid #ff4136';
-        msg.innerText = "Ассистент: " + text;
-    }
-
-    chatBody.appendChild(msg);
-    // Автопрокрутка вниз
-    chatBody.scrollTop = chatBody.scrollHeight;
-}
-
-// --- 2. АНИМАЦИЯ НЕОНОВЫХ ЧАСТИЦ ---
+// --- 1. НЕОНОВЫЕ ЧАСТИЦЫ (Canvas) ---
 const canvas = document.getElementById('neonCanvas');
 const ctx = canvas.getContext('2d');
-
 let particles = [];
+
+// Подгоняем размер под окно
 function resize() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
@@ -79,10 +19,11 @@ class Particle {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
         this.size = Math.random() * 2 + 1;
-        this.speedX = Math.random() * 0.6 - 0.3;
-        this.speedY = Math.random() * 0.6 - 0.3;
-        this.color = Math.random() > 0.5 ? '#ff00ff' : '#00f3ff';
-        this.alpha = Math.random();
+        this.speedX = Math.random() * 0.4 - 0.2;
+        this.speedY = Math.random() * 0.4 - 0.2;
+        // Цвета в стиле NEO-ARENA
+        this.color = Math.random() > 0.5 ? '#00f3ff' : '#ff00ff';
+        this.alpha = Math.random() * 0.5;
     }
     update() {
         this.x += this.speedX;
@@ -99,7 +40,10 @@ class Particle {
     }
 }
 
-for (let i = 0; i < 50; i++) particles.push(new Particle());
+// Создаем 60 частиц
+for (let i = 0; i < 60; i++) {
+    particles.push(new Particle());
+}
 
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -111,7 +55,65 @@ function animate() {
 }
 animate();
 
-// --- 3. ПЛАВНЫЙ СКРОЛЛ К СЕКЦИЯМ ---
+// --- 2. ЛОГИКА AI-АССИСТЕНТА ---
+const chatWindow = document.getElementById('chatWindow');
+const chatBody = document.getElementById('chatBody');
+
+function toggleChat() {
+    if (chatWindow.style.display === 'flex') {
+        chatWindow.style.display = 'none';
+    } else {
+        chatWindow.style.display = 'flex';
+    }
+}
+
+function askAI(id) {
+    // Получаем текст из нажатой кнопки
+    const btns = document.querySelectorAll('.ai-btns button');
+    const userMessage = btns[id-1].innerText;
+    
+    // Добавляем сообщение пользователя
+    addMessage(userMessage, 'user');
+
+    // Логика ответов
+    let response = "";
+    switch(id) {
+        case 1: response = "Сейчас свободно 12 мест в Standard и 3 в VIP Pro. Бронируй скорее!"; break;
+        case 2: response = "Да! Каждое 5-е посещение — энергетик в подарок, а именинникам +3 часа бесплатно."; break;
+        case 3: response = "В VIP Pro стоят RTX 4090, мониторы 360Hz и кресла DXRacer. Это абсолютный топ."; break;
+        case 4: response = "Ночной пакет (22:00 - 08:00) стоит от 900₽. Напиток уже включен в стоимость!"; break;
+        default: response = "Свяжись с администратором по телефону для уточнения деталей.";
+    }
+
+    // Имитируем «раздумья» бота
+    setTimeout(() => {
+        addMessage(response, 'bot');
+    }, 600);
+}
+
+function addMessage(text, sender) {
+    const msgDiv = document.createElement('div');
+    msgDiv.style.margin = '10px 0';
+    msgDiv.style.padding = '12px';
+    msgDiv.style.borderRadius = '12px';
+    msgDiv.style.fontSize = '0.85rem';
+    
+    if (sender === 'user') {
+        msgDiv.style.background = 'rgba(255,255,255,0.05)';
+        msgDiv.style.borderRight = '3px solid #fff';
+        msgDiv.style.textAlign = 'right';
+        msgDiv.innerHTML = `<span style="opacity: 0.6; font-size: 0.7rem;">Ты:</span><br>${text}`;
+    } else {
+        msgDiv.style.background = 'rgba(0, 243, 255, 0.1)';
+        msgDiv.style.borderLeft = '3px solid #00f3ff';
+        msgDiv.innerHTML = `<span style="color: #00f3ff; font-weight: bold; font-size: 0.7rem;">NEO-AI:</span><br>${text}`;
+    }
+    
+    chatBody.appendChild(msgDiv);
+    chatBody.scrollTop = chatBody.scrollHeight;
+}
+
+// --- 3. ПЛАВНЫЙ СКРОЛЛ ---
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();

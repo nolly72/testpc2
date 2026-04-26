@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NEO-ARENA | ELITE CYBER CLUB</title>
     
-    <!-- Подключаем ОДИН файл стилей для надежности -->
+    <!-- Подключение файла стилей -->
     <link rel="stylesheet" href="style.css">
     
-    <!-- Правильные шрифты -->
+    <!-- Шрифты: Orbitron для заголовков, Exo 2 для текста -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Exo+2:wght@700;900&family=Orbitron:wght@900&display=swap" rel="stylesheet">
+    <link href="https://googleapis.com/css2?family=Exo+2:wght@400;600;700;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Анимированный многоцветный фон -->
+    <!-- ФОНОВЫЕ ЭФФЕКТЫ -->
     <div class="mesh-gradient">
         <div class="blob pink"></div>
         <div class="blob blue"></div>
@@ -23,7 +23,7 @@
     </div>
     <canvas id="neonCanvas"></canvas>
 
-    <!-- Навигация -->
+    <!-- НАВИГАЦИЯ -->
     <nav class="navbar">
         <div class="container nav-flex">
             <div class="logo">NEO<span>ARENA</span></div>
@@ -31,7 +31,6 @@
                 <li><a href="#welcome">Главная</a></li>
                 <li><a href="#prices">Тарифы</a></li>
                 <li><a href="#hardware">Железо</a></li>
-                <li><a href="#food-menu">Меню</a></li>
                 <li><a href="#contacts">Контакты</a></li>
             </ul>
             <div class="nav-contacts">
@@ -42,9 +41,9 @@
     </nav>
 
     <main>
-        <!-- Секция ПРИВЕТСТВИЕ -->
-        <section id="welcome" class="hero-section">
-            <div class="container hero-grid">
+        <!-- ПРИВЕТСТВИЕ (HERO) -->
+        <section id="welcome" class="hero-section container">
+            <div class="hero-grid">
                 <div class="hero-text">
                     <h1 class="main-title">NEO-ARENA — <br><span class="outline">Лучшее комьюнити</span></h1>
                     <p class="hero-desc">Топовое железо, яркая атмосфера и лучшие условия для побед. Твой новый уровень гейминга начинается здесь.</p>
@@ -55,55 +54,52 @@
                 </div>
                 <div class="hero-image-box">
                     <div class="glass-frame">
-                        <img src="main_banner_promo.jpg" alt="Club Promo" class="hero-img">
+                        <!-- Здесь будет твоё изображение main_banner_promo.jpg -->
+                        <div class="promo-placeholder">
+                            <span>PREMIUM GAMING</span>
+                        </div>
                         <div class="promo-badge">Конкурс внутри!</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Секция ТАРИФЫ -->
+        <!-- ТАРИФЫ -->
         <section id="prices" class="container">
             <h2 class="section-title">Тарифы и пакеты</h2>
             <div class="price-grid">
                 <!-- Standard -->
                 <div class="price-card glass-card">
-                    <div class="price-thumb"><img src="standard_photo.jpg" alt="Standard"></div>
                     <div class="price-info">
                         <div class="chip blue">Standard Zone</div>
                         <div class="cost">180₽ <span>/ час</span></div>
                         <ul class="pkg-list">
                             <li><span>3 часа</span> <b>450₽</b></li>
                             <li><span>5 часов</span> <b>700₽</b></li>
-                            <li><span>Пакет День</span> <b>1200₽</b></li>
                             <li><span>Пакет Ночь</span> <b>900₽</b></li>
                         </ul>
                     </div>
                 </div>
                 <!-- VIP -->
                 <div class="price-card glass-card vip-highlight">
-                    <div class="price-thumb"><img src="vip_photo.jpg" alt="VIP"></div>
                     <div class="price-info">
                         <div class="chip pink">VIP Pro Zone</div>
                         <div class="cost">250₽ <span>/ час</span></div>
                         <ul class="pkg-list">
                             <li><span>3 часа</span> <b>650₽</b></li>
                             <li><span>5 часов</span> <b>1000₽</b></li>
-                            <li><span>Пакет День</span> <b>1800₽</b></li>
                             <li><span>Пакет Ночь</span> <b>1300₽</b></li>
                         </ul>
                     </div>
                 </div>
                 <!-- PS5 -->
                 <div class="price-card glass-card">
-                    <div class="price-thumb"><img src="ps5_photo.jpg" alt="PS5"></div>
                     <div class="price-info">
                         <div class="chip orange">PS5 Lounge</div>
                         <div class="cost">300₽ <span>/ час</span></div>
                         <ul class="pkg-list">
                             <li><span>3 часа</span> <b>800₽</b></li>
                             <li><span>5 часов</span> <b>1200₽</b></li>
-                            <li><span>Пакет День</span> <b>1500₽</b></li>
                             <li><span>Пакет Ночь</span> <b>1100₽</b></li>
                         </ul>
                     </div>
@@ -111,39 +107,32 @@
             </div>
         </section>
 
-        <!-- Секция ЖЕЛЕЗО -->
+        <!-- ЖЕЛЕЗО -->
         <section id="hardware" class="container">
             <h2 class="section-title">Наше железо</h2>
-            <div class="hardware-list">
+            <div class="hw-stack">
                 <div class="hw-item glass-card">
                     <div class="hw-text">
                         <h3>Standard Zone <span>HyperX Edition</span></h3>
                         <div class="hw-specs">
-                            <p>CPU: <b>AMD Ryzen 5 5600X</b></p>
-                            <p>GPU: <b>AMD Radeon RX 6700 XT</b></p>
-                            <p>RAM: <b>16GB HyperX Fury</b></p>
-                            <p>GEAR: <b>HyperX Pulsefire / Cloud II</b></p>
+                            <p>GPU: <b>RTX 3060 Ti</b> | CPU: <b>Ryzen 5 5600X</b></p>
+                            <p>Monitor: <b>144Hz</b> | Gear: <b>HyperX</b></p>
                         </div>
                     </div>
-                    <div class="hw-img"><img src="pc_standard_build.jpg" alt="PC Standard"></div>
                 </div>
-                
                 <div class="hw-item glass-card vip-border">
                     <div class="hw-text">
                         <h3 class="magenta-text">VIP Pro Zone <span>Logitech G</span></h3>
                         <div class="hw-specs">
-                            <p>CPU: <b>Intel Core i9-13900K</b></p>
-                            <p>GPU: <b>RTX 4090 Founders Edition</b></p>
-                            <p>RAM: <b>32GB DDR5 6400MHz</b></p>
-                            <p>GEAR: <b>Logitech G Pro X Superlight</b></p>
+                            <p>GPU: <b>RTX 4090</b> | CPU: <b>i9-13900K</b></p>
+                            <p>Monitor: <b>360Hz</b> | Gear: <b>Logitech G Pro</b></p>
                         </div>
                     </div>
-                    <div class="hw-img"><img src="pc_vip_build.jpg" alt="PC VIP"></div>
                 </div>
             </div>
         </section>
 
-        <!-- Секция МЫ ТУТ -->
+        <!-- КОНТАКТЫ -->
         <section id="contacts" class="container">
             <div class="contact-box glass-card">
                 <div class="contact-text">
@@ -156,14 +145,14 @@
                         <a href="#" class="soc-item">DS</a>
                     </div>
                 </div>
-                <div class="contact-map">
-                    <img src="map_screenshot.jpg" alt="Map Location">
+                <div class="contact-map-placeholder">
+                    <span>КАРТА</span>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Ассистент -->
+    <!-- AI АССИСТЕНТ -->
     <div class="ai-wrapper">
         <div class="ai-chat glass-card" id="chatWindow">
             <div class="ai-head">NEO-AI ASSISTANT</div>
@@ -174,13 +163,13 @@
                     <button onclick="askAI(2)">Скидки</button>
                     <button onclick="askAI(3)">Железо VIP</button>
                     <button onclick="askAI(4)">Бронь на ночь</button>
-                    <button onclick="askAI(5)">Свои девайсы</button>
                 </div>
             </div>
         </div>
         <button class="ai-trigger" onclick="toggleChat()">AI</button>
     </div>
 
+    <!-- Подключение скриптов -->
     <script src="script.js"></script>
 </body>
 </html>
