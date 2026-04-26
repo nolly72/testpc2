@@ -3,30 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEO-ARENA | Киберспортивное комьюнити</title>
+    <title>NEO-ARENA | ELITE CYBER CLUB</title>
     
-    <!-- Важно: проверь, что файлы base.css и style.css лежат в той же папке! -->
-    <link rel="stylesheet" href="base.css">
+    <!-- Подключаем ОДИН файл стилей для надежности -->
     <link rel="stylesheet" href="style.css">
     
+    <!-- Правильные шрифты -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Exo+2:wght@600;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+    <link href="https://googleapis.com/css2?family=Exo+2:wght@700;900&family=Orbitron:wght@900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Фон с переливами (Mesh Gradient) -->
-    <div class="color-blobs">
+
+    <!-- Анимированный многоцветный фон -->
+    <div class="mesh-gradient">
         <div class="blob pink"></div>
         <div class="blob blue"></div>
         <div class="blob orange"></div>
-        <div class="blob purple"></div>
     </div>
-    
     <canvas id="neonCanvas"></canvas>
 
-    <!-- Шапка сайта -->
-    <nav>
-        <div class="nav-container">
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="container nav-flex">
             <div class="logo">NEO<span>ARENA</span></div>
             <ul class="nav-links">
                 <li><a href="#welcome">Главная</a></li>
@@ -35,165 +34,151 @@
                 <li><a href="#food-menu">Меню</a></li>
                 <li><a href="#contacts">Контакты</a></li>
             </ul>
-            <div class="nav-right">
+            <div class="nav-contacts">
                 <a href="tel:+74957777777" class="nav-phone">8 (495) 777-77-77</a>
-                <a href="#prices" class="btn-book-red">Забронировать</a>
+                <a href="#prices" class="btn-primary">Забронировать</a>
             </div>
         </div>
     </nav>
 
     <main>
-        <!-- Главный экран -->
+        <!-- Секция ПРИВЕТСТВИЕ -->
         <section id="welcome" class="hero-section">
-            <div class="container">
-                <div class="hero-grid">
-                    <div class="hero-text">
-                        <h1 class="main-title">NEO-ARENA — <br><span class="outline-text">Лучшее комьюнити</span></h1>
-                        <p class="hero-desc">Топовое железо, яркая атмосфера и лучшие условия для побед. Твой новый уровень гейминга начинается здесь.</p>
-                        <div class="hero-action-btns">
-                            <a href="#prices" class="btn-red-large">Играть сейчас</a>
-                            <a href="#hardware" class="btn-outline-white">Железо</a>
-                        </div>
+            <div class="container hero-grid">
+                <div class="hero-text">
+                    <h1 class="main-title">NEO-ARENA — <br><span class="outline">Лучшее комьюнити</span></h1>
+                    <p class="hero-desc">Топовое железо, яркая атмосфера и лучшие условия для побед. Твой новый уровень гейминга начинается здесь.</p>
+                    <div class="hero-btns">
+                        <a href="#prices" class="btn-primary-large">Играть сейчас</a>
+                        <a href="#hardware" class="btn-outline">Наше железо</a>
                     </div>
-                    <div class="hero-banner glass-card">
-                        <!-- Сюда вставь фото main_banner_promo.jpg -->
-                        <img src="main_banner_promo.jpg" alt="NEO ARENA PROMO" onerror="this.style.display='none'">
-                        <div class="banner-tag">Конкурс внутри!</div>
+                </div>
+                <div class="hero-image-box">
+                    <div class="glass-frame">
+                        <img src="main_banner_promo.jpg" alt="Club Promo" class="hero-img">
+                        <div class="promo-badge">Конкурс внутри!</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Тарифы -->
+        <!-- Секция ТАРИФЫ -->
         <section id="prices" class="container">
             <h2 class="section-title">Тарифы и пакеты</h2>
             <div class="price-grid">
-                <div class="glass-card price-item">
-                    <div class="price-img"><img src="standard_photo.jpg" alt="Standard Zone"></div>
-                    <div class="price-content">
-                        <div class="badge-blue">Standard Zone</div>
-                        <div class="main-price">180₽ <span>/ час</span></div>
+                <!-- Standard -->
+                <div class="price-card glass-card">
+                    <div class="price-thumb"><img src="standard_photo.jpg" alt="Standard"></div>
+                    <div class="price-info">
+                        <div class="chip blue">Standard Zone</div>
+                        <div class="cost">180₽ <span>/ час</span></div>
                         <ul class="pkg-list">
                             <li><span>3 часа</span> <b>450₽</b></li>
                             <li><span>5 часов</span> <b>700₽</b></li>
-                            <li><span>День</span> <b>1200₽</b></li>
-                            <li><span>Ночь</span> <b>900₽</b></li>
+                            <li><span>Пакет День</span> <b>1200₽</b></li>
+                            <li><span>Пакет Ночь</span> <b>900₽</b></li>
                         </ul>
                     </div>
                 </div>
-                <div class="glass-card price-item vip-glow-card">
-                    <div class="price-img"><img src="vip_photo.jpg" alt="VIP Zone"></div>
-                    <div class="price-content">
-                        <div class="badge-pink">VIP Pro Zone</div>
-                        <div class="main-price">250₽ <span>/ час</span></div>
+                <!-- VIP -->
+                <div class="price-card glass-card vip-highlight">
+                    <div class="price-thumb"><img src="vip_photo.jpg" alt="VIP"></div>
+                    <div class="price-info">
+                        <div class="chip pink">VIP Pro Zone</div>
+                        <div class="cost">250₽ <span>/ час</span></div>
                         <ul class="pkg-list">
                             <li><span>3 часа</span> <b>650₽</b></li>
                             <li><span>5 часов</span> <b>1000₽</b></li>
-                            <li><span>День</span> <b>1800₽</b></li>
-                            <li><span>Ночь</span> <b>1300₽</b></li>
+                            <li><span>Пакет День</span> <b>1800₽</b></li>
+                            <li><span>Пакет Ночь</span> <b>1300₽</b></li>
                         </ul>
                     </div>
                 </div>
-                <div class="glass-card price-item">
-                    <div class="price-img"><img src="ps5_photo.jpg" alt="PS5 Zone"></div>
-                    <div class="price-content">
-                        <div class="badge-orange">PS5 Lounge</div>
-                        <div class="main-price">300₽ <span>/ час</span></div>
+                <!-- PS5 -->
+                <div class="price-card glass-card">
+                    <div class="price-thumb"><img src="ps5_photo.jpg" alt="PS5"></div>
+                    <div class="price-info">
+                        <div class="chip orange">PS5 Lounge</div>
+                        <div class="cost">300₽ <span>/ час</span></div>
                         <ul class="pkg-list">
                             <li><span>3 часа</span> <b>800₽</b></li>
                             <li><span>5 часов</span> <b>1200₽</b></li>
-                            <li><span>День</span> <b>1500₽</b></li>
-                            <li><span>Ночь</span> <b>1100₽</b></li>
+                            <li><span>Пакет День</span> <b>1500₽</b></li>
+                            <li><span>Пакет Ночь</span> <b>1100₽</b></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Железо -->
+        <!-- Секция ЖЕЛЕЗО -->
         <section id="hardware" class="container">
             <h2 class="section-title">Наше железо</h2>
-            <div class="hw-stack">
-                <div class="hw-card-full glass-card">
-                    <div class="hw-info-side">
-                        <h3>Standard Zone <span>HyperX</span></h3>
-                        <div class="specs-grid">
-                            <p>CPU: AMD Ryzen 5 5600X</p>
-                            <p>GPU: AMD Radeon RX 6700 XT</p>
-                            <p>RAM: 16GB HyperX Fury</p>
-                            <p>Gear: HyperX Pulsefire / Cloud II</p>
+            <div class="hardware-list">
+                <div class="hw-item glass-card">
+                    <div class="hw-text">
+                        <h3>Standard Zone <span>HyperX Edition</span></h3>
+                        <div class="hw-specs">
+                            <p>CPU: <b>AMD Ryzen 5 5600X</b></p>
+                            <p>GPU: <b>AMD Radeon RX 6700 XT</b></p>
+                            <p>RAM: <b>16GB HyperX Fury</b></p>
+                            <p>GEAR: <b>HyperX Pulsefire / Cloud II</b></p>
                         </div>
                     </div>
-                    <div class="hw-photo-side"><img src="pc_standard_build.jpg" alt="Standard PC"></div>
+                    <div class="hw-img"><img src="pc_standard_build.jpg" alt="PC Standard"></div>
                 </div>
-                <div class="hw-card-full glass-card vip-border">
-                    <div class="hw-info-side">
-                        <h3 class="text-pink">VIP Pro Zone <span>Logitech G</span></h3>
-                        <div class="specs-grid">
-                            <p>CPU: Intel Core i9-13900K</p>
-                            <p>GPU: RTX 4090 Founders Edition</p>
-                            <p>RAM: 32GB DDR5 6400MHz</p>
-                            <p>Gear: Logitech G Pro X Superlight</p>
+                
+                <div class="hw-item glass-card vip-border">
+                    <div class="hw-text">
+                        <h3 class="magenta-text">VIP Pro Zone <span>Logitech G</span></h3>
+                        <div class="hw-specs">
+                            <p>CPU: <b>Intel Core i9-13900K</b></p>
+                            <p>GPU: <b>RTX 4090 Founders Edition</b></p>
+                            <p>RAM: <b>32GB DDR5 6400MHz</b></p>
+                            <p>GEAR: <b>Logitech G Pro X Superlight</b></p>
                         </div>
                     </div>
-                    <div class="hw-photo-side"><img src="pc_vip_build.jpg" alt="VIP PC"></div>
+                    <div class="hw-img"><img src="pc_vip_build.jpg" alt="PC VIP"></div>
                 </div>
             </div>
         </section>
 
-        <!-- Меню (Energy Hub) -->
-        <section id="food-menu" class="container">
-            <div class="glass-card menu-box">
-                <h2 class="section-title">Energy Hub</h2>
-                <div class="menu-flex">
-                    <div class="menu-list">
-                        <h4>Напитки</h4>
-                        <div class="m-item"><span>Monster Energy</span> <b>180₽</b></div>
-                        <div class="m-item"><span>Red Bull</span> <b>150₽</b></div>
-                        <div class="m-item"><span>Кофе Flat White</span> <b>150₽</b></div>
-                        <h4 style="margin-top: 20px;">Снеки</h4>
-                        <div class="m-item"><span>Cyber Sandwich</span> <b>280₽</b></div>
-                        <div class="m-item"><span>Начос с соусом</span> <b>190₽</b></div>
-                    </div>
-                    <div class="menu-img"><img src="menu_items.jpg" alt="Menu"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Контакты -->
+        <!-- Секция МЫ ТУТ -->
         <section id="contacts" class="container">
-            <div class="contacts-grid glass-card">
-                <div class="contact-info">
+            <div class="contact-box glass-card">
+                <div class="contact-text">
                     <h2 class="section-title left">Мы тут</h2>
-                    <p class="address">г. Москва, ул. Тверская, д. 7</p>
-                    <a href="tel:+74957777777" class="phone-link">8 (495) 777-77-77</a>
+                    <p class="addr">г. Москва, ул. Тверская, д. 7</p>
+                    <a href="tel:+74957777777" class="big-phone">8 (495) 777-77-77</a>
                     <div class="socials">
-                        <a href="#" class="soc">VK</a> <a href="#" class="soc">TG</a> <a href="#" class="soc">DS</a>
+                        <a href="#" class="soc-item">VK</a>
+                        <a href="#" class="soc-item">TG</a>
+                        <a href="#" class="soc-item">DS</a>
                     </div>
                 </div>
                 <div class="contact-map">
-                    <img src="map_screenshot.jpg" alt="Локация">
+                    <img src="map_screenshot.jpg" alt="Map Location">
                 </div>
             </div>
         </section>
     </main>
 
     <!-- Ассистент -->
-    <div id="ai-assistant">
-        <div class="ai-window glass-card" id="chatWindow" style="display: none;">
-            <div class="ai-header">NEO-AI Ассистент</div>
+    <div class="ai-wrapper">
+        <div class="ai-chat glass-card" id="chatWindow">
+            <div class="ai-head">NEO-AI ASSISTANT</div>
             <div class="ai-body" id="chatBody">
-                <p class="bot-start-msg">Привет! Чем я могу тебе помочь сегодня?</p>
-                <div class="ai-questions">
+                <p class="ai-welcome-msg">Привет! Чем я могу помочь?</p>
+                <div class="ai-btns">
                     <button onclick="askAI(1)">Свободные места</button>
                     <button onclick="askAI(2)">Скидки</button>
                     <button onclick="askAI(3)">Железо VIP</button>
-                    <button onclick="askAI(4)">Ночь</button>
-                    <button onclick="askAI(5)">Девайсы</button>
+                    <button onclick="askAI(4)">Бронь на ночь</button>
+                    <button onclick="askAI(5)">Свои девайсы</button>
                 </div>
             </div>
         </div>
-        <button class="ai-toggle-btn" onclick="toggleChat()">AI</button>
+        <button class="ai-trigger" onclick="toggleChat()">AI</button>
     </div>
 
     <script src="script.js"></script>
