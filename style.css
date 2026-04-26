@@ -1,0 +1,272 @@
+/* Базовые настройки и шрифты */
+:root {
+    --cyan: #00f3ff;
+    --magenta: #ff00ff;
+    --bg-dark: #050505;
+    --glass: rgba(255, 255, 255, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+#neonCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Навигация */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--cyan);
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+.logo span {
+    color: var(--cyan);
+    text-shadow: 0 0 10px var(--cyan);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.nav-links a:hover {
+    color: var(--cyan);
+    text-shadow: 0 0 8px var(--cyan);
+}
+
+/* Заголовки */
+.section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #fff;
+    text-shadow: 0 0 10px var(--magenta);
+    letter-spacing: 5px;
+}
+
+/* Hero секция */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.neon-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(3rem, 10vw, 6rem);
+    margin-bottom: 20px;
+    text-shadow: 0 0 20px var(--cyan), 0 0 40px var(--cyan);
+    animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+    from { opacity: 0.8; }
+    to { opacity: 1; text-shadow: 0 0 30px var(--cyan), 0 0 60px var(--cyan); }
+}
+
+.btn-main {
+    display: inline-block;
+    padding: 15px 40px;
+    margin-top: 30px;
+    border: 2px solid var(--magenta);
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    border-radius: 5px;
+    box-shadow: 0 0 15px var(--magenta);
+    transition: 0.3s;
+}
+
+.btn-main:hover {
+    background: var(--magenta);
+    box-shadow: 0 0 30px var(--magenta);
+}
+
+/* Сетка цен */
+.price-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding-bottom: 100px;
+}
+
+.price-card {
+    background: var(--glass);
+    border: 1px solid var(--cyan);
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    transition: 0.4s;
+    backdrop-filter: blur(5px);
+}
+
+.price-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(0, 243, 255, 0.3);
+}
+
+.price-card.vip { border-color: var(--magenta); }
+.price-card.vip .card-header { color: var(--magenta); }
+
+.card-header {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--cyan);
+}
+
+.main-price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.main-price span { font-size: 1rem; opacity: 0.7; }
+
+.package-list {
+    list-style: none;
+    text-align: left;
+    margin-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+}
+
+.package-list li {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+/* Девайсы */
+.device-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.device-card {
+    background: rgba(0, 0, 0, 0.6);
+    border-left: 4px solid var(--cyan);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.device-card h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    color: var(--cyan);
+    margin-bottom: 10px;
+}
+
+/* Контакты */
+#contacts {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.phone {
+    font-size: 2rem;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    margin: 20px 0;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.socials {
+    margin-top: 30px;
+}
+
+.socials span {
+    margin: 0 15px;
+    color: var(--cyan);
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+/* АДАПТИВНОСТЬ (Мобильная версия) */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Для полноценного бургер-меню нужен доп. JS */
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .price-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-section {
+        padding-top: 100px;
+    }
+
+    .neon-title {
+        font-size: 2.5rem;
+    }
+}

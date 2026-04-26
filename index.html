@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NEO-ARENA | Киберспортивный клуб будущего</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Подключаем футуристичный шрифт -->
+    <link href="https://googleapis.com" rel="stylesheet">
+</head>
+<body>
+    <!-- Фон-холст для анимации -->
+    <canvas id="neonCanvas"></canvas>
+
+    <!-- Навигация -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">NEO<span>ARENA</span></div>
+            <ul class="nav-links">
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#philosophy">Философия</a></li>
+                <li><a href="#prices">Цены</a></li>
+                <li><a href="#devices">Девайсы</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+            <div class="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Главная -->
+        <section id="home" class="hero-section">
+            <div class="container">
+                <h1 class="neon-title">NEO ARENA</h1>
+                <p class="subtitle">Твой портал в мир бескомпромиссного гейминга</p>
+                <a href="#prices" class="btn-main">Забронировать</a>
+            </div>
+        </section>
+
+        <!-- Философия -->
+        <section id="philosophy">
+            <div class="container">
+                <h2 class="section-title">ФИЛОСОФИЯ</h2>
+                <div class="content-box">
+                    <p>NEO-ARENA — это не просто компьютерный клуб. Это место, где технологии встречаются с комфортом. Мы создали атмосферу, в которой ничто не отвлекает от игры: от эргономики кресел до стабильности соединения.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Цены -->
+        <section id="prices">
+            <div class="container">
+                <h2 class="section-title">ПРАЙС-ЛИСТ</h2>
+                <div class="price-grid">
+                    <!-- Standard -->
+                    <div class="price-card">
+                        <div class="card-header">STANDARD</div>
+                        <div class="main-price">180₽ <span>/ час</span></div>
+                        <ul class="package-list">
+                            <li>Пакет 3 часа — 450₽</li>
+                            <li>Пакет 5 часов — 700₽</li>
+                            <li>День (10:00 - 22:00) — 1200₽</li>
+                            <li>Ночь (22:00 - 10:00) — 900₽</li>
+                        </ul>
+                    </div>
+                    <!-- VIP -->
+                    <div class="price-card vip">
+                        <div class="card-header">VIP ZONE</div>
+                        <div class="main-price">250₽ <span>/ час</span></div>
+                        <ul class="package-list">
+                            <li>Пакет 3 часа — 650₽</li>
+                            <li>Пакет 5 часов — 1000₽</li>
+                            <li>День (10:00 - 22:00) — 1800₽</li>
+                            <li>Ночь (22:00 - 10:00) — 1300₽</li>
+                        </ul>
+                    </div>
+                    <!-- PS5 -->
+                    <div class="price-card ps">
+                        <div class="card-header">PLAYSTATION 5</div>
+                        <div class="main-price">300₽ <span>/ час</span></div>
+                        <ul class="package-list">
+                            <li>Пакет 3 часа — 800₽</li>
+                            <li>Пакет 5 часов — 1200₽</li>
+                            <li>День (12:00 - 20:00) — 1500₽</li>
+                            <li>Ночь (22:00 - 08:00) — 1100₽</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Девайсы -->
+        <section id="devices">
+            <div class="container">
+                <h2 class="section-title">ЖЕЛЕЗО И ПЕРИФЕРИЯ</h2>
+                <div class="device-grid">
+                    <div class="device-card">
+                        <h3>PC BUILD</h3>
+                        <p>AMD Ryzen 7 5800X + Radeon RX 6800 XT</p>
+                    </div>
+                    <div class="device-card">
+                        <h3>MOUSE</h3>
+                        <p>HyperX Pulsefire Haste</p>
+                    </div>
+                    <div class="device-card">
+                        <h3>KEYBOARD</h3>
+                        <p>HyperX Alloy Origins</p>
+                    </div>
+                    <div class="device-card">
+                        <h3>HEADSET</h3>
+                        <p>HyperX Cloud II Wireless</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Контакты -->
+        <section id="contacts">
+            <div class="container">
+                <h2 class="section-title">МЫ НА СВЯЗИ</h2>
+                <div class="contact-info">
+                    <p class="address">Москва, ул. Тверская, д. 7</p>
+                    <a href="tel:+74957777777" class="phone">+7 495 777 77 77</a>
+                    <div class="socials">
+                        <span>VK</span> <span>TELEGRAM</span> <span>DISCORD</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 NEO-ARENA. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
