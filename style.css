@@ -256,7 +256,7 @@ nav {
 
 .ai-questions button:hover { background: var(--red); }
 
-/* АДАПТИВ */
+/* АДАПТИВ НОВОЕ */
 @media (max-width: 900px) {
     .hero-grid, .hw-card-full { grid-template-columns: 1fr; flex-direction: column; }
     .nav-links { display: none; }
