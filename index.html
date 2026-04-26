@@ -191,24 +191,33 @@
         </div>
     </footer>
 
-    <!-- АССИСТЕНТ -->
-    <div class="ai-container">
-        <div class="chat-box" id="chatWindow">
-            <div class="chat-head">
-                <div class="online-dot"></div>
-                <span>AREA-AI ASSISTANT</span>
-                <button class="close-chat" onclick="toggleChat()">×</button>
+   <!-- АССИСТЕНТ (PREMIUM LOOK) -->
+<div class="ai-container">
+    <div class="chat-box glass-effect" id="chatWindow">
+        <div class="chat-head">
+            <div class="ai-info">
+                <div class="online-pulse"></div>
+                <div class="ai-text">
+                    <span class="ai-name">AREA-ZONE AI</span>
+                    <span class="ai-status">Online • Smart Assistant</span>
+                </div>
             </div>
-            <div class="chat-main" id="chatBody"></div>
-            <div class="chat-footer">
-                <button onclick="askAI(1)">Свободно?</button>
-                <button onclick="askAI(2)">Акции</button>
-                <button onclick="askAI(3)">Железо</button>
-                <button onclick="askAI(4)">Бронь</button>
-            </div>
+            <button class="close-chat" onclick="toggleChat()">×</button>
         </div>
-        <button class="ai-toggle" onclick="toggleChat()">AI</button>
+        <div class="chat-main" id="chatBody"></div>
+        <div class="chat-footer">
+            <button class="ai-btn-chip" onclick="askAI(1)">⚡ Свободно?</button>
+            <button class="ai-btn-chip" onclick="askAI(2)">🎁 Акции</button>
+            <button class="ai-btn-chip" onclick="askAI(3)">🖥️ Железо</button>
+            <button class="ai-btn-chip" onclick="askAI(4)">📅 Бронь</button>
+        </div>
     </div>
+    <button class="ai-toggle-premium" onclick="toggleChat()">
+        <span class="ai-glow"></span>
+        <span class="ai-label">AI</span>
+    </button>
+</div>
+
 
     <script src="script.js"></script>
 </body>
