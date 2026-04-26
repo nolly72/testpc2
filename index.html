@@ -3,197 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEO-ARENA | Киберспортивное комьюнити</title>
-    
-    <!-- Важно: проверь, что файлы base.css и style.css лежат в той же папке! -->
-    <link rel="stylesheet" href="base.css">
+    <title>NEO-AI ARENA | Премиальный компьютерный клуб</title>
+    <!-- Шрифты для премиального вида -->
+    <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Exo+2:wght@600;900&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Фон с переливами (Mesh Gradient) -->
-    <div class="color-blobs">
-        <div class="blob pink"></div>
-        <div class="blob blue"></div>
-        <div class="blob orange"></div>
-        <div class="blob purple"></div>
-    </div>
-    
+
+    <!-- Фоновый холст для неоновых частиц из JS -->
     <canvas id="neonCanvas"></canvas>
 
-    <!-- Шапка сайта -->
-    <nav>
-        <div class="nav-container">
-            <div class="logo">NEO<span>ARENA</span></div>
-            <ul class="nav-links">
-                <li><a href="#welcome">Главная</a></li>
-                <li><a href="#prices">Тарифы</a></li>
-                <li><a href="#hardware">Железо</a></li>
-                <li><a href="#food-menu">Меню</a></li>
-                <li><a href="#contacts">Контакты</a></li>
-            </ul>
-            <div class="nav-right">
-                <a href="tel:+74957777777" class="nav-phone">8 (495) 777-77-77</a>
-                <a href="#prices" class="btn-book-red">Забронировать</a>
-            </div>
+    <!-- Навигация -->
+    <header class="header">
+        <div class="header-left">
+            <img src="hyperx_logo.png" alt="HyperX" class="partner-logo">
+            <div class="logo">NEO-AI <span>ARENA</span></div>
         </div>
-    </nav>
+        <nav class="nav">
+            <a href="#about">О нас</a>
+            <a href="#prices">Тарифы</a>
+            <a href="#menu">Меню</a>
+            <a href="#booking" class="btn-primary">Забронировать</a>
+        </nav>
+        <div class="header-right">
+            <img src="logitech_logo.png" alt="Logitech" class="partner-logo">
+        </div>
+    </header>
 
     <main>
-        <!-- Главный экран -->
-        <section id="welcome" class="hero-section">
+        <!-- Главный баннер -->
+        <section id="about" class="hero" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('main_banner_promo.jpg') no-repeat center/cover;">
+            <div class="hero-content">
+                <h1 class="fade-in">ПОГРУЖАЙСЯ <br><span>В ИГРУ</span></h1>
+                <p>Ультрасовременное железо и премиальный комфорт 24/7</p>
+                <a href="#prices" class="btn-glare">Смотреть тарифы</a>
+            </div>
+        </section>
+
+        <!-- Раздел Тарифы и Зоны -->
+        <section id="prices" class="section">
             <div class="container">
-                <div class="hero-grid">
-                    <div class="hero-text">
-                        <h1 class="main-title">NEO-ARENA — <br><span class="outline-text">Лучшее комьюнити</span></h1>
-                        <p class="hero-desc">Топовое железо, яркая атмосфера и лучшие условия для побед. Твой новый уровень гейминга начинается здесь.</p>
-                        <div class="hero-action-btns">
-                            <a href="#prices" class="btn-red-large">Играть сейчас</a>
-                            <a href="#hardware" class="btn-outline-white">Железо</a>
+                <h2 class="section-title">Игровые зоны</h2>
+                <div class="zones-grid">
+                    
+                    <!-- Standard Zone -->
+                    <div class="price-card">
+                        <img src="standard_photo.jpg" alt="Standard Zone" class="card-img">
+                        <h3>STANDARD ZONE</h3>
+                        <p class="specs">RTX 3060 • 144Hz • Core i5</p>
+                        <div class="packages">
+                            <div class="pack">1 час — 180₽</div>
+                            <div class="pack">3 часа — 500₽</div>
+                            <div class="pack">5 часов — 800₽</div>
+                            <div class="pack-special">День — 1000₽ / Ночь — 900₽</div>
                         </div>
                     </div>
-                    <div class="hero-banner glass-card">
-                        <!-- Сюда вставь фото main_banner_promo.jpg -->
-                        <img src="main_banner_promo.jpg" alt="NEO ARENA PROMO" onerror="this.style.display='none'">
-                        <div class="banner-tag">Конкурс внутри!</div>
+
+                    <!-- VIP Zone -->
+                    <div class="price-card vip">
+                        <div class="badge">PREMIUM</div>
+                        <img src="vip_photo.jpg" alt="VIP Zone" class="card-img">
+                        <h3>VIP ROOM</h3>
+                        <p class="specs">RTX 4080 • 360Hz • Core i9</p>
+                        <div class="packages">
+                            <div class="pack">1 час — 250₽</div>
+                            <div class="pack">3 часа — 700₽</div>
+                            <div class="pack">6 часов — 1200₽</div>
+                            <div class="pack-special">День — 1500₽ / Ночь — 1300₽</div>
+                        </div>
                     </div>
+
+                    <!-- FPS Zone -->
+                    <div class="price-card fps">
+                        <img src="ps5_photo.jpg" alt="PS5 Zone" class="card-img">
+                        <h3>FPS & CONSOLE</h3>
+                        <p class="specs">PS5 • 4K TV • DualSense Edge</p>
+                        <div class="packages">
+                            <div class="pack">1 час — 200₽</div>
+                            <div class="pack">3 часа — 550₽</div>
+                            <div class="pack-special">Ночь — 1000₽</div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- Тарифы -->
-        <section id="prices" class="container">
-            <h2 class="section-title">Тарифы и пакеты</h2>
-            <div class="price-grid">
-                <div class="glass-card price-item">
-                    <div class="price-img"><img src="standard_photo.jpg" alt="Standard Zone"></div>
-                    <div class="price-content">
-                        <div class="badge-blue">Standard Zone</div>
-                        <div class="main-price">180₽ <span>/ час</span></div>
-                        <ul class="pkg-list">
-                            <li><span>3 часа</span> <b>450₽</b></li>
-                            <li><span>5 часов</span> <b>700₽</b></li>
-                            <li><span>День</span> <b>1200₽</b></li>
-                            <li><span>Ночь</span> <b>900₽</b></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="glass-card price-item vip-glow-card">
-                    <div class="price-img"><img src="vip_photo.jpg" alt="VIP Zone"></div>
-                    <div class="price-content">
-                        <div class="badge-pink">VIP Pro Zone</div>
-                        <div class="main-price">250₽ <span>/ час</span></div>
-                        <ul class="pkg-list">
-                            <li><span>3 часа</span> <b>650₽</b></li>
-                            <li><span>5 часов</span> <b>1000₽</b></li>
-                            <li><span>День</span> <b>1800₽</b></li>
-                            <li><span>Ночь</span> <b>1300₽</b></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="glass-card price-item">
-                    <div class="price-img"><img src="ps5_photo.jpg" alt="PS5 Zone"></div>
-                    <div class="price-content">
-                        <div class="badge-orange">PS5 Lounge</div>
-                        <div class="main-price">300₽ <span>/ час</span></div>
-                        <ul class="pkg-list">
-                            <li><span>3 часа</span> <b>800₽</b></li>
-                            <li><span>5 часов</span> <b>1200₽</b></li>
-                            <li><span>День</span> <b>1500₽</b></li>
-                            <li><span>Ночь</span> <b>1100₽</b></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Железо -->
-        <section id="hardware" class="container">
-            <h2 class="section-title">Наше железо</h2>
-            <div class="hw-stack">
-                <div class="hw-card-full glass-card">
-                    <div class="hw-info-side">
-                        <h3>Standard Zone <span>HyperX</span></h3>
-                        <div class="specs-grid">
-                            <p>CPU: AMD Ryzen 5 5600X</p>
-                            <p>GPU: AMD Radeon RX 6700 XT</p>
-                            <p>RAM: 16GB HyperX Fury</p>
-                            <p>Gear: HyperX Pulsefire / Cloud II</p>
-                        </div>
-                    </div>
-                    <div class="hw-photo-side"><img src="pc_standard_build.jpg" alt="Standard PC"></div>
-                </div>
-                <div class="hw-card-full glass-card vip-border">
-                    <div class="hw-info-side">
-                        <h3 class="text-pink">VIP Pro Zone <span>Logitech G</span></h3>
-                        <div class="specs-grid">
-                            <p>CPU: Intel Core i9-13900K</p>
-                            <p>GPU: RTX 4090 Founders Edition</p>
-                            <p>RAM: 32GB DDR5 6400MHz</p>
-                            <p>Gear: Logitech G Pro X Superlight</p>
-                        </div>
-                    </div>
-                    <div class="hw-photo-side"><img src="pc_vip_build.jpg" alt="VIP PC"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Меню (Energy Hub) -->
-        <section id="food-menu" class="container">
-            <div class="glass-card menu-box">
-                <h2 class="section-title">Energy Hub</h2>
-                <div class="menu-flex">
-                    <div class="menu-list">
+        <!-- Раздел Меню -->
+        <section id="menu" class="section menu-section">
+            <div class="container">
+                <h2 class="section-title">Снек-бар</h2>
+                <div class="menu-grid">
+                    <div class="menu-card">
                         <h4>Напитки</h4>
-                        <div class="m-item"><span>Monster Energy</span> <b>180₽</b></div>
-                        <div class="m-item"><span>Red Bull</span> <b>150₽</b></div>
-                        <div class="m-item"><span>Кофе Flat White</span> <b>150₽</b></div>
-                        <h4 style="margin-top: 20px;">Снеки</h4>
-                        <div class="m-item"><span>Cyber Sandwich</span> <b>280₽</b></div>
-                        <div class="m-item"><span>Начос с соусом</span> <b>190₽</b></div>
+                        <ul>
+                            <li><span>Энергетики</span> <span>от 120₽</span></li>
+                            <li><span>Газировка</span> <span>90₽</span></li>
+                            <li><span>Кофе / Чай</span> <span>100₽</span></li>
+                        </ul>
                     </div>
-                    <div class="menu-img"><img src="menu_items.jpg" alt="Menu"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Контакты -->
-        <section id="contacts" class="container">
-            <div class="contacts-grid glass-card">
-                <div class="contact-info">
-                    <h2 class="section-title left">Мы тут</h2>
-                    <p class="address">г. Москва, ул. Тверская, д. 7</p>
-                    <a href="tel:+74957777777" class="phone-link">8 (495) 777-77-77</a>
-                    <div class="socials">
-                        <a href="#" class="soc">VK</a> <a href="#" class="soc">TG</a> <a href="#" class="soc">DS</a>
+                    <div class="menu-card">
+                        <h4>Еда</h4>
+                        <ul>
+                            <li><span>Сендвичи</span> <span>150₽</span></li>
+                            <li><span>Снеки / Чипсы</span> <span>110₽</span></li>
+                            <li><span>Батончики</span> <span>80₽</span></li>
+                        </ul>
                     </div>
-                </div>
-                <div class="contact-map">
-                    <img src="map_screenshot.jpg" alt="Локация">
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Ассистент -->
-    <div id="ai-assistant">
-        <div class="ai-window glass-card" id="chatWindow" style="display: none;">
-            <div class="ai-header">NEO-AI Ассистент</div>
-            <div class="ai-body" id="chatBody">
-                <p class="bot-start-msg">Привет! Чем я могу тебе помочь сегодня?</p>
-                <div class="ai-questions">
-                    <button onclick="askAI(1)">Свободные места</button>
-                    <button onclick="askAI(2)">Скидки</button>
-                    <button onclick="askAI(3)">Железо VIP</button>
-                    <button onclick="askAI(4)">Ночь</button>
-                    <button onclick="askAI(5)">Девайсы</button>
+    <!-- AI Ассистент -->
+    <div class="ai-wrapper">
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <div class="ai-status"></div>
+                <span>NEO-AI ASSISTANT</span>
+                <button class="close-chat" onclick="toggleChat()">×</button>
+            </div>
+            <div class="chat-body" id="chatBody">
+                <div class="ai-msg-start">Привет! Я помогу тебе быстро сориентироваться:</div>
+                <div class="ai-options">
+                    <button onclick="askAI(1)">⚡ Свободные места</button>
+                    <button onclick="askAI(2)">🎁 Акции и скидки</button>
+                    <button onclick="askAI(3)">🖥️ Конфигурация VIP</button>
+                    <button onclick="askAI(4)">🌙 Ночной пакет</button>
+                    <button onclick="askAI(5)">🍔 Заказать еду</button>
                 </div>
             </div>
         </div>
-        <button class="ai-toggle-btn" onclick="toggleChat()">AI</button>
+        
+        <button class="ai-trigger" onclick="toggleChat()">
+            <div class="pulse-ring"></div>
+            <span class="ai-icon">AI</span>
+        </button>
     </div>
 
     <script src="script.js"></script>
