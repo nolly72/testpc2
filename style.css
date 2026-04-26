@@ -1,89 +1,48 @@
-/* --- БАЗОВЫЕ НАСТРОЙКИ --- */
-:root {
-    --cyan: #00f3ff;
-    --magenta: #ff00ff;
-    --bg: #020204;
-    --glass: rgba(255, 255, 255, 0.03);
-}
-
+:root { --cyan: #00f3ff; --magenta: #ff00ff; --bg: #020204; --glass: rgba(255, 255, 255, 0.03); }
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
 body { background-color: var(--bg); color: #fff; line-height: 1.6; overflow-x: hidden; }
-
 #neonCanvas { position: fixed; top: 0; left: 0; z-index: -1; pointer-events: none; }
-
-/* --- ШАПКА --- */
-.header {
-    position: fixed; top: 0; width: 100%; z-index: 1000;
-    background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(0, 243, 255, 0.2); padding: 10px 0;
-}
+/* ШАПКА */
+.header { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0, 243, 255, 0.2); padding: 10px 0; }
 .header-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
-.header-side { flex: 1; }
 .brand-img { max-height: 40px; max-width: 140px; object-fit: contain; opacity: 0.7; filter: grayscale(1) brightness(2); }
-.header-center { flex: 2; text-align: center; }
 .main-logo { font-weight: 900; font-size: 26px; letter-spacing: 2px; }
 .main-logo span { color: var(--cyan); text-shadow: 0 0 15px var(--cyan); }
-.nav a { color: #fff; text-decoration: none; margin: 0 12px; font-weight: 700; font-size: 12px; text-transform: uppercase; transition: 0.3s; }
-.nav a:hover { color: var(--cyan); }
-.btn-primary { background: var(--cyan); color: #000 !important; padding: 8px 18px; border-radius: 50px; box-shadow: 0 0 15px var(--cyan); }
-
-/* --- ГЛАВНЫЙ ЭКРАН --- */
+.nav a { color: #fff; text-decoration: none; margin: 0 12px; font-weight: 700; font-size: 12px; text-transform: uppercase; }
+.btn-primary { background: var(--cyan); color: #000!important; padding: 8px 18px; border-radius: 50px; box-shadow: 0 0 15px var(--cyan); border: none; font-weight: 800; cursor: pointer; }
+/* ГЛАВНЫЙ ЭКРАН & СЕКЦИИ */
 .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; }
 .neon-title { font-size: clamp(45px, 10vw, 110px); font-weight: 900; line-height: 0.85; text-shadow: 0 0 15px var(--cyan), 0 0 30px var(--magenta); margin-bottom: 20px; }
-.hero-subtext { font-weight: 800; letter-spacing: 5px; color: #ccc; font-size: 14px; text-transform: uppercase; }
-
-/* --- РАЗДЕЛ О НАС --- */
-.section { padding: 100px 0; }
-.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.section { padding: 100px 0; } .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 .section-title { text-align: center; font-size: 45px; font-weight: 900; margin-bottom: 60px; text-shadow: 0 0 10px var(--cyan); text-transform: uppercase; }
-
 .about-flex { display: flex; gap: 50px; align-items: center; }
-.about-text { flex: 1; }
-.bold-text { font-size: 20px; font-weight: 800; color: var(--cyan); margin-bottom: 20px; }
-.about-stats { display: flex; gap: 30px; margin-top: 40px; }
 .stat-item { flex: 1; background: var(--glass); padding: 20px; border-radius: 20px; border-left: 3px solid var(--magenta); font-weight: 800; }
 .stat-item span { font-size: 28px; color: var(--magenta); }
-.about-image { flex: 1; }
-.about-img-file { width: 100%; border-radius: 30px; border: 2px solid var(--cyan); box-shadow: 0 0 20px rgba(0, 243, 255, 0.2); }
-
-/* --- КАРТОЧКИ ЗОН --- */
+.about-img-file { width: 100%; border-radius: 30px; border: 2px solid var(--cyan); }
+/* КАРТОЧКИ */
 .zones-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px; }
 .price-card { background: var(--glass); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 30px; padding: 25px; transition: 0.4s; position: relative; }
 .price-card:hover { border-color: var(--cyan); transform: translateY(-10px); }
 .card-img { width: 100%; height: 230px; object-fit: cover; border-radius: 20px; margin-bottom: 20px; }
-.card-name { color: var(--cyan); font-weight: 900; margin-bottom: 15px; font-size: 22px; }
+.card-name { color: var(--cyan); font-weight: 900; font-size: 22px; }
 .specs-box { background: rgba(255,255,255,0.02); padding: 15px; border-radius: 20px; margin-bottom: 20px; }
-.spec-line { font-size: 13px; margin-bottom: 6px; font-weight: 700; color: #eee; }
-.spec-line strong { color: var(--cyan); margin-right: 5px; }
-.mini-spec-img { width: 100%; height: 100px; object-fit: cover; border-radius: 12px; margin-top: 10px; border: 1px solid rgba(255,255,255,0.1); }
-
-.card-footer { display: flex; gap: 10px; }
+.mini-spec-img { width: 100%; height: 100px; object-fit: cover; border-radius: 12px; margin-top: 10px; }
 .price-btn { flex: 1; background: rgba(255,255,255,0.05); padding: 12px; text-align: center; border-radius: 15px; font-weight: 900; }
-.price-btn.highlight { border: 1px solid var(--magenta); background: rgba(255, 0, 255, 0.1); text-shadow: 0 0 5px var(--magenta); }
-
-.vip-border { border: 1px solid var(--magenta); box-shadow: 0 0 20px rgba(255, 0, 255, 0.1); }
-.premium-badge { position: absolute; top: 20px; right: 20px; background: var(--magenta); padding: 5px 15px; border-radius: 20px; font-weight: 900; font-size: 12px; }
-
-/* --- БАР --- */
-.menu-banner-img { width: 100%; height: 300px; object-fit: cover; border-radius: 30px; margin-bottom: 40px; border: 1px solid var(--magenta); }
+.price-btn.highlight { border: 1px solid var(--magenta); background: rgba(255,0,255,0.1); }
+/* БАР & БРОНЬ */
 .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
 .menu-card { background: var(--glass); padding: 25px; border-radius: 25px; border-top: 3px solid var(--cyan); }
-.menu-header { color: var(--cyan); font-weight: 900; margin-bottom: 20px; font-size: 18px; text-align: center; }
-.menu-list { list-style: none; }
-.menu-list li { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-weight: 700; font-size: 14px; }
-.menu-list li span:last-child { color: var(--magenta); }
-
-/* --- АССИСТЕНТ --- */
+.booking-card { background: var(--glass); border: 2px solid var(--cyan); padding: 40px; border-radius: 30px; max-width: 600px; margin: 0 auto; text-align: center; }
+.booking-form { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; }
+.booking-form input { background: rgba(255,255,255,0.05); border: 1px solid #333; padding: 15px; border-radius: 12px; color: #fff; outline: none; }
+/* ФУТЕР & АИ */
+.footer { background: #08080a; padding: 60px 0; border-top: 1px solid #111; }
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; }
 .ai-container { position: fixed; bottom: 25px; right: 25px; z-index: 2000; }
 .ai-toggle { width: 65px; height: 65px; border-radius: 50%; background: linear-gradient(45deg, var(--magenta), var(--cyan)); border: none; color: #fff; font-weight: 900; cursor: pointer; box-shadow: 0 0 25px var(--cyan); }
-.chat-box { position: absolute; bottom: 85px; right: 0; width: 340px; background: #0c0c0e; border-radius: 25px; border: 1px solid var(--cyan); display: none; flex-direction: column; overflow: hidden; box-shadow: 0 20px 60px #000; }
-.chat-head { padding: 18px; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); }
-.online-dot { width: 10px; height: 10px; background: #00ff88; border-radius: 50%; box-shadow: 0 0 10px #00ff88; }
+.chat-box { position: absolute; bottom: 85px; right: 0; width: 340px; background: #0c0c0e; border-radius: 25px; border: 1px solid var(--cyan); display: none; flex-direction: column; overflow: hidden; }
 .chat-main { height: 350px; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; }
 .chat-footer { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 15px; background: #08080a; }
-.chat-footer button { background: #1a1a22; border: 1px solid #333; color: #fff; padding: 10px; border-radius: 12px; font-size: 11px; font-weight: 700; cursor: pointer; transition: 0.2s; }
-.chat-footer button:hover { background: var(--cyan); color: #000; }
-
-/* МОБИЛЬНАЯ ВЕРСИЯ */
+.chat-footer button { background: #1a1a22; border: 1px solid #333; color: #fff; padding: 10px; border-radius: 12px; font-size: 11px; font-weight: 700; cursor: pointer; }
 @media (max-width: 992px) { .about-flex { flex-direction: column; } .header-side { display: none; } }
 @media (max-width: 768px) { .hero-content h1 { font-size: 55px; } .section-title { font-size: 32px; } .about-stats { flex-direction: column; } }
