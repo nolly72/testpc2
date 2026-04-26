@@ -1,167 +1,139 @@
 /* style.css */
 :root {
+    --red: #ff4136;
     --pink: #ff00ff;
-    --cyan: #00f3ff;
-    --glass: rgba(255, 255, 255, 0.03);
-    --border: rgba(255, 255, 255, 0.1);
+    --blue: #00f3ff;
+    --orange: #ff851b;
+    --purple: #b10dc9;
 }
 
-/* --- ФОНОВЫЕ ЭФФЕКТЫ --- */
+/* Многоцветный живой фон */
+.color-blobs {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -3;
+    overflow: hidden;
+}
+
+.blob {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.15;
+    animation: moveBlobs 25s infinite alternate;
+}
+
+.blob.pink { background: var(--pink); top: -10%; left: -5%; }
+.blob.blue { background: var(--blue); bottom: -10%; right: -5%; animation-delay: -5s; }
+.blob.orange { background: var(--orange); top: 30%; right: 5%; animation-delay: -10s; }
+.blob.purple { background: var(--purple); bottom: 15%; left: 10%; animation-delay: -15s; }
+
+@keyframes moveBlobs {
+    from { transform: translate(0, 0) scale(1); }
+    to { transform: translate(150px, 100px) scale(1.3); }
+}
+
 #neonCanvas {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: -1;
-    filter: blur(50px);
-}
-
-.bg-glow {
-    position: fixed;
-    width: 150vw;
-    height: 150vh;
-    background: radial-gradient(circle at 50% 50%, rgba(255, 0, 255, 0.1), rgba(0, 243, 255, 0.05), transparent);
     z-index: -2;
-    animation: rotateBg 20s infinite linear;
 }
 
-@keyframes rotateBg {
-    from { transform: translate(-25%, -25%) rotate(0deg); }
-    to { transform: translate(-25%, -25%) rotate(360deg); }
-}
+/* Шрифты и заголовки */
+.logo { font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: 1.8rem; }
+.logo span { color: var(--red); text-shadow: 0 0 15px var(--red); }
 
-/* --- ЗАГОЛОВКИ И ТЕКСТ --- */
-.logo span { color: var(--pink); text-shadow: 0 0 20px var(--pink); }
-
-.ultra-header {
+.section-title {
     font-family: 'Orbitron', sans-serif;
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-size: 3rem;
     text-align: center;
-    letter-spacing: 15px;
-    margin-bottom: 100px;
-    background: linear-gradient(to right, #fff, var(--pink));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 30px rgba(255, 0, 255, 0.5));
+    margin-bottom: 60px;
+    font-weight: 900;
 }
+
+.section-title.left { text-align: left; }
 
 .main-title {
-    font-family: 'Orbitron', sans-serif;
-    font-size: clamp(3.5rem, 12vw, 9rem);
-    text-align: center;
-    line-height: 1;
+    font-size: clamp(2.5rem, 6vw, 5.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 25px;
 }
 
-.sub-title {
-    text-align: center;
-    font-size: 1.8rem;
-    letter-spacing: 12px;
-    color: var(--cyan);
-    text-shadow: 0 0 20px var(--cyan);
+.outline-text {
+    color: transparent;
+    -webkit-text-stroke: 2px #fff;
 }
 
-/* --- ПРЕМИАЛЬНЫЕ КАРТОЧКИ --- */
-.glass-card {
-    background: var(--glass);
-    border: 2px solid var(--border);
-    border-radius: var(--radius);
-    backdrop-filter: blur(25px);
+/* Кнопки в стиле CyberX */
+.btn-book-red, .btn-red-large {
+    background: var(--red);
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 900;
     transition: var(--transition);
-    position: relative;
-    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(255, 65, 54, 0.3);
 }
 
-.glass-card:hover {
-    border-color: var(--pink);
-    transform: translateY(-15px) scale(1.02);
-    box-shadow: 0 30px 60px rgba(255, 0, 255, 0.2);
-}
+.btn-red-large { padding: 18px 40px; font-size: 1.1rem; }
+.btn-book-red:hover, .btn-red-large:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(255, 65, 54, 0.5); }
 
-/* --- ГАЛЕРЕЯ И ФОТО --- */
-.mega-gallery {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    grid-template-rows: 250px 250px;
-    gap: 25px;
-    margin-top: 80px;
-}
-
-.gallery-big { grid-row: span 2; }
-.mega-gallery img, .card-photo img, .hw-main-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.7;
-    transition: 0.8s;
-}
-
-.glass-card:hover img { opacity: 1; transform: scale(1.1); }
-
-/* --- ПРАЙС И ЖЕЛЕЗО --- */
-.price-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-    gap: 40px;
-}
-
-.price-item { padding: 60px 40px; text-align: center; }
-.price-val { font-size: 5rem; margin: 20px 0; }
-.price-val span { font-size: 1.2rem; opacity: 0.4; }
-
-.hw-giant-grid { display: flex; flex-direction: column; gap: 60px; }
-.hw-content-flex { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: center; }
-.hw-content-flex.reverse { direction: rtl; }
-.hw-content-flex.reverse .hw-list-bold { direction: ltr; }
-
-.hw-list-bold span { display: block; font-size: 1.8rem; color: var(--cyan); margin-top: 5px; }
-
-/* --- МЫ ТУТ (КОНТАКТЫ) --- */
-.contacts-ultra {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    padding: 80px;
-    background: linear-gradient(145deg, rgba(255,0,255,0.05), rgba(0,243,255,0.05));
-}
-
-.big-addr { font-size: 2.5rem; color: var(--cyan); margin-bottom: 40px; }
-.big-phone {
-    font-size: 3.5rem;
+.btn-outline-white {
+    padding: 18px 40px;
+    border: 2px solid #fff;
+    border-radius: 10px;
     color: #fff;
     text-decoration: none;
+    font-weight: 900;
+    margin-left: 20px;
     transition: 0.3s;
 }
 
-.big-phone:hover { color: var(--pink); text-shadow: 0 0 30px var(--pink); }
-
-.soc-btn {
-    padding: 20px;
-    text-align: center;
-    border: 2px solid var(--border);
-    border-radius: 20px;
-    text-decoration: none;
-    color: #fff;
+/* Карточки */
+.glass-card {
+    background: rgba(15, 15, 20, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    transition: var(--transition);
 }
 
-/* --- АССИСТЕНТ --- */
-.ai-main-btn {
+.glass-card:hover { border-color: var(--blue); transform: translateY(-10px); }
+
+/* Прайс и Железо детали */
+.price-img { height: 200px; }
+.price-img img { width: 100%; height: 100%; object-fit: cover; }
+.price-content { padding: 30px; }
+
+.badge-blue { display: inline-block; padding: 5px 15px; background: var(--blue); color: #000; border-radius: 5px; font-weight: 900; margin-bottom: 15px; }
+.badge-pink { display: inline-block; padding: 5px 15px; background: var(--pink); color: #fff; border-radius: 5px; font-weight: 900; margin-bottom: 15px; }
+
+.pkg-list { list-style: none; margin-top: 20px; }
+.pkg-list li { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+
+/* Ассистент */
+.ai-btn-toggle {
     position: fixed;
-    bottom: 50px;
-    right: 50px;
-    width: 80px;
-    height: 80px;
+    bottom: 40px;
+    right: 40px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
-    background: var(--pink);
-    box-shadow: 0 0 40px var(--pink);
+    background: var(--red);
     border: none;
     color: #fff;
+    font-weight: 900;
+    font-size: 1.2rem;
     cursor: pointer;
+    box-shadow: 0 10px 30px rgba(255, 65, 54, 0.5);
     z-index: 2000;
-}
-
-.ai-box {
-    position: fixed;
-    bottom: 150px;
-    right: 50px;
-    width: 400px;
-    display: none;
-    flex-direction: column;
 }

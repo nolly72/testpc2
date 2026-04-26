@@ -1,8 +1,9 @@
-// --- 1. АНИМИРОВАННЫЙ НЕОНОВЫЙ ФОН ---
+// --- 1. АНИМАЦИЯ НЕОНОВЫХ ЧАСТИЦ ---
 const canvas = document.getElementById('neonCanvas');
 const ctx = canvas.getContext('2d');
+
 let particles = [];
-const particleCount = 60;
+const particleCount = 50;
 
 function resize() {
     canvas.width = window.innerWidth;
@@ -18,29 +19,28 @@ class Particle {
     init() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 4 + 1;
+        this.size = Math.random() * 2 + 1;
         this.speedX = Math.random() * 1 - 0.5;
         this.speedY = Math.random() * 1 - 0.5;
-        // Розовый и голубой неон
-        this.color = Math.random() > 0.8 ? '#00f3ff' : '#ff00ff';
-        this.alpha = Math.random() * 0.5 + 0.1;
-        this.blinkSpeed = Math.random() * 0.02;
+        // Цвета частиц соответствуют переливам фона
+        const colors = ['#ff00ff', '#00f3ff', '#ff851b', '#b10dc9'];
+        this.color = colors[Math.floor(Math.random() * colors.length)];
+        this.alpha = Math.random();
+        this.blink = Math.random() * 0.02;
     }
     update() {
         this.x += this.speedX;
         this.y += this.speedY;
-        this.alpha += this.blinkSpeed;
-        if (this.alpha > 0.8 || this.alpha < 0.1) this.blinkSpeed *= -1;
+        this.alpha += this.blink;
+        if (this.alpha > 0.8 || this.alpha < 0.2) this.blink *= -1;
 
-        if (this.x < 0) this.x = canvas.width;
-        if (this.x > canvas.width) this.x = 0;
-        if (this.y < 0) this.y = canvas.height;
-        if (this.y > canvas.height) this.y = 0;
+        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
     }
     draw() {
         ctx.save();
         ctx.globalAlpha = this.alpha;
-        ctx.shadowBlur = 20; // Усиленное свечение
+        ctx.shadowBlur = 10;
         ctx.shadowColor = this.color;
         ctx.fillStyle = this.color;
         ctx.beginPath();
@@ -50,25 +50,19 @@ class Particle {
     }
 }
 
-function createParticles() {
-    for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
-    }
-}
+for (let i = 0; i < particleCount; i++) particles.push(new Particle());
 
 function animate() {
-    ctx.fillStyle = 'rgba(5, 5, 8, 0.15)'; // Глубокий след
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     particles.forEach(p => {
         p.update();
         p.draw();
     });
     requestAnimationFrame(animate);
 }
-createParticles();
 animate();
 
-// --- 2. ЛОГИКА NEO-AI АССИСТЕНТА ---
+// --- 2. NEO-AI АССИСТЕНТ (БЕЗ CAPS) ---
 const chatWindow = document.getElementById('chatWindow');
 const chatBody = document.getElementById('chatBody');
 
@@ -78,26 +72,26 @@ function toggleChat() {
 }
 
 function askAI(id) {
-    let response = "";
-    // Берем текст из кнопок нового HTML
-    const userQuestion = document.querySelector(`.ai-btns button:nth-child(${id})`).innerText;
-    addMessage(userQuestion, 'user');
+    // Получаем текст вопроса из кнопки
+    const userQ = document.querySelector(`.ai-questions button:nth-child(${id})`).innerText;
+    addMessage(userQ, 'user');
 
+    let response = "";
     switch(id) {
         case 1:
-            response = "ПРЯМО СЕЙЧАС СВОБОДНО 5 ПК В СТАНДАРТЕ И 2 В VIP-ЗОНЕ. УСПЕЙ ЗАБРОНИРОВАТЬ!";
+            response = "Прямо сейчас свободно 6 компьютеров в Standard и 3 места в VIP. Можешь приходить!";
             break;
         case 2:
-            response = "ДАРИМ +3 ЧАСА К ЛЮБОМУ ПАКЕТУ В ДЕНЬ РОЖДЕНИЯ ПРИ ПРЕДЪЯВЛЕНИИ ПАСПОРТА!";
+            response = "Для именинников у нас действует акция: +3 часа к любому пакету. Просто покажи паспорт админу.";
             break;
         case 3:
-            response = "VIP ЭТО: RTX 4090 FOUNDERS + I9-13900K. МОНИТОРЫ 240 ГЦ. ПОЛНЫЙ ГЕЙМИНГ.";
+            response = "В VIP-зоне стоят RTX 4090 и процессоры i9-13900K. Это самый мощный конфиг для игры на ультра-настройках.";
             break;
         case 4:
-            response = "НОЧНОЙ ПАКЕТ С 22:00 ДО 10:00 ВСЕГО ЗА 1300₽ В VIP-ЗОНЕ. ЭНЕРГЕТИК В ПОДАРОК!";
+            response = "Ночной пакет начинается в 22:00 и длится до 10:00 утра. Стоимость в VIP — 1300₽, напиток включен!";
             break;
         case 5:
-            response = "ДА, КОНЕЧНО! У НАС УДОБНЫЕ USB-ХАБЫ НА КАЖДОМ СТОЛЕ ДЛЯ ТВОИХ ДЕВАЙСОВ.";
+            response = "Да, мы только за! На столах есть свободные порты для быстрого подключения твоих девайсов.";
             break;
     }
 
@@ -108,55 +102,53 @@ function askAI(id) {
 
 function addMessage(text, sender) {
     const msgDiv = document.createElement('div');
-    msgDiv.style.margin = '15px 0';
-    msgDiv.style.padding = '15px';
-    msgDiv.style.borderRadius = '20px';
-    msgDiv.style.fontSize = '0.85rem';
-    msgDiv.style.fontWeight = '900'; // Жирный шрифт
-    msgDiv.style.textTransform = 'uppercase';
+    msgDiv.style.margin = '10px 0';
+    msgDiv.style.padding = '12px';
+    msgDiv.style.borderRadius = '15px';
+    msgDiv.style.fontSize = '0.9rem';
+    msgDiv.style.fontWeight = '600';
 
     if (sender === 'user') {
-        msgDiv.style.background = 'rgba(0, 243, 255, 0.1)';
-        msgDiv.style.borderRight = '4px solid #00f3ff';
+        msgDiv.style.background = 'rgba(255, 255, 255, 0.1)';
+        msgDiv.style.borderRight = '3px solid #fff';
         msgDiv.style.textAlign = 'right';
         msgDiv.innerText = text;
     } else {
-        msgDiv.style.background = 'rgba(255, 0, 255, 0.1)';
-        msgDiv.style.borderLeft = '4px solid #ff00ff';
-        msgDiv.innerText = "NEO-AI: " + text;
+        msgDiv.style.background = 'rgba(255, 65, 54, 0.1)';
+        msgDiv.style.borderLeft = '3px solid #ff4136';
+        msgDiv.innerText = "Ассистент: " + text;
     }
 
     chatBody.appendChild(msgDiv);
-    chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: 'smooth' });
+    chatBody.scrollTop = chatBody.scrollHeight;
 }
 
-// --- 3. ПЛАВНЫЕ ЭФФЕКТЫ ПРИ СКРОЛЛЕ ---
-const observerOptions = { threshold: 0.1 };
-const observer = new IntersectionObserver((entries) => {
+// --- 3. ПЛАВНЫЙ СКРОЛЛ И ПОЯВЛЕНИЕ ПРИ СКРОЛЛЕ ---
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            window.scrollTo({
+                top: target.offsetTop - 90,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+const revealOnScroll = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
             entry.target.style.transform = 'translateY(0)';
         }
     });
-}, observerOptions);
+}, { threshold: 0.1 });
 
-// Анимируем и секции, и отдельные карточки для крутого эффекта
 document.querySelectorAll('section, .glass-card').forEach(el => {
     el.style.opacity = '0';
-    el.style.transform = 'translateY(50px)';
-    el.style.transition = 'all 0.8s cubic-bezier(0.19, 1, 0.22, 1)';
-    observer.observe(el);
-});
-
-// Плавный скролл для навигации
-document.querySelectorAll('.nav-links a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        window.scrollTo({
-            top: target.offsetTop - 90,
-            behavior: 'smooth'
-        });
-    });
+    el.style.transform = 'translateY(40px)';
+    el.style.transition = 'all 0.8s ease-out';
+    revealOnScroll.observe(el);
 });
