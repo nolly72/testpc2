@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEO-ARENA | Cyber Performance Club</title>
-    <!-- Подключаем жирные шрифты для читаемости -->
+    <title>NEO-AI ARENA | Cyber Performance Club</title>
+    <!-- Подключаем шрифты -->
     <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -13,74 +13,75 @@
     <!-- Холст для неоновых частиц -->
     <canvas id="neonCanvas"></canvas>
 
-    <!-- Шапка сайта -->
+    <!-- ИСПРАВЛЕННАЯ ШАПКА: Логотипы теперь в контейнере и не растягиваются -->
     <header class="header">
-        <div class="header-left">
-            <img src="hyperx_logo.png" alt="HyperX" class="partner-logo">
-            <div class="logo neon-text-small">NEO-AI <span>ARENA</span></div>
-        </div>
-        <nav class="nav">
-            <a href="#prices">Зоны</a>
-            <a href="#menu">Бар</a>
-            <a href="#booking" class="btn-primary">Забронировать</a>
-        </nav>
-        <div class="header-right">
-            <img src="logitech_logo.png" alt="Logitech" class="partner-logo">
+        <div class="header-container">
+            <div class="header-side">
+                <img src="hyperx_logo.png" alt="HyperX" class="brand-img">
+            </div>
+            
+            <div class="header-center">
+                <div class="main-logo">NEO-AI <span>ARENA</span></div>
+                <nav class="nav">
+                    <a href="#prices">ЗОНЫ</a>
+                    <a href="#menu">БАР</a>
+                    <a href="#booking" class="btn-primary">ЗАБРОНИРОВАТЬ</a>
+                </nav>
+            </div>
+
+            <div class="header-side" style="text-align: right;">
+                <img src="logitech_logo.png" alt="Logitech" class="brand-img">
+            </div>
         </div>
     </header>
 
     <main>
         <!-- Главный экран -->
-        <section class="hero" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('main_banner_promo.jpg') no-repeat center/cover;">
+        <section class="hero" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('main_banner_promo.jpg') no-repeat center/cover;">
             <div class="hero-content">
-                <h1 class="neon-text-main">ULTIMATE<br><span>GAMING</span></h1>
-                <p class="hero-subtext">Погрузись в атмосферу киберспорта на топовом железе</p>
+                <h1 class="neon-title">ULTIMATE<br><span>GAMING</span></h1>
+                <p class="hero-subtext">ПОГРУЗИСЬ В АТМОСФЕРУ КИБЕРСПОРТА НА ТОПОВОМ ЖЕЛЕЗЕ</p>
             </div>
         </section>
 
         <!-- Раздел Зоны и Железо -->
         <section id="prices" class="section">
             <div class="container">
-                <h2 class="section-title neon-text-main">Игровые зоны</h2>
+                <h2 class="section-title">ИГРОВЫЕ ЗОНЫ</h2>
                 <div class="zones-grid">
                     
                     <!-- Standard Zone -->
                     <div class="price-card">
                         <img src="standard_photo.jpg" alt="Standard Zone" class="card-img">
-                        <h3 class="neon-text-small">STANDARD ZONE</h3>
-                        <div class="specs-container">
-                            <div class="spec-item"><strong>Процессор:</strong> Intel i5-13400F (LGA1700, 4.6GHz)</div>
-                            <div class="spec-item"><strong>Видеокарта:</strong> NVIDIA RTX 3060 12GB GDDR6</div>
-                            <div class="spec-item"><strong>Память:</strong> 16GB DDR4 3200MHz CL16</div>
-                            <div class="spec-item"><strong>Накопитель:</strong> 1TB NVMe Gen4 (5000MB/s)</div>
-                            <div class="spec-item"><strong>Мышь:</strong> Logitech G102 Lightsync</div>
-                            <div class="spec-item"><strong>Клава:</strong> HyperX Alloy Origins (Blue Sw)</div>
-                            <div class="spec-item"><strong>Уши:</strong> Razer Blackshark V2 X</div>
+                        <h3 class="card-name">STANDARD ZONE</h3>
+                        <div class="specs-box">
+                            <div class="spec-line"><strong>CPU:</strong> Intel i5-13400F (LGA1700)</div>
+                            <div class="spec-line"><strong>GPU:</strong> NVIDIA RTX 3060 12GB</div>
+                            <div class="spec-line"><strong>RAM:</strong> 16GB DDR4 3200MHz</div>
+                            <div class="spec-line"><strong>SSD:</strong> 1TB NVMe Gen4</div>
+                            <div class="spec-line"><strong>GEAR:</strong> HyperX Origins + G102</div>
                         </div>
-                        <div class="price-footer">
-                            <div class="price-tag">1 час — 180₽</div>
-                            <div class="price-tag special">Ночь — 900₽</div>
+                        <div class="card-footer">
+                            <div class="price-btn">1 ЧАС — 180₽</div>
+                            <div class="price-btn highlight">НОЧЬ — 900₽</div>
                         </div>
                     </div>
 
                     <!-- VIP Zone -->
-                    <div class="price-card vip">
-                        <div class="badge-premium">PREMIUM</div>
+                    <div class="price-card vip-border">
+                        <div class="premium-badge">ULTRA VIP</div>
                         <img src="vip_photo.jpg" alt="VIP Zone" class="card-img">
-                        <h3 class="neon-text-small">VIP PRO ROOM</h3>
-                        <div class="specs-container">
-                            <div class="spec-item"><strong>Процессор:</strong> Intel i9-14900K (LGA1700, 6.0GHz)</div>
-                            <div class="spec-item"><strong>Видеокарта:</strong> NVIDIA RTX 4090 Rog Strix 24GB</div>
-                            <div class="spec-item"><strong>Мать:</strong> ASUS ROG Maximus Z790 Hero</div>
-                            <div class="spec-item"><strong>Память:</strong> 32GB DDR5 7200MHz RGB CL34</div>
-                            <div class="spec-item"><strong>Накопитель:</strong> Samsung 990 Pro 2TB</div>
-                            <div class="spec-item"><strong>Мышь:</strong> Logitech G Pro X Superlight 2</div>
-                            <div class="spec-item"><strong>Клава:</strong> GMMK Pro Custom (Lube)</div>
-                            <div class="spec-item"><strong>Уши:</strong> HyperX Cloud Alpha Wireless</div>
+                        <h3 class="card-name">VIP PRO ROOM</h3>
+                        <div class="specs-box">
+                            <div class="spec-line"><strong>CPU:</strong> Intel i9-14900K (6.0GHz)</div>
+                            <div class="spec-line"><strong>GPU:</strong> RTX 4090 Rog Strix 24GB</div>
+                            <div class="spec-line"><strong>RAM:</strong> 32GB DDR5 7200MHz CL34</div>
+                            <div class="spec-line"><strong>MOBO:</strong> Z790 ROG Maximus Hero</div>
+                            <div class="spec-line"><strong>GEAR:</strong> G Pro Superlight 2 + GMMK</div>
                         </div>
-                        <div class="price-footer">
-                            <div class="price-tag">1 час — 250₽</div>
-                            <div class="price-tag special">Ночь — 1300₽</div>
+                        <div class="card-footer">
+                            <div class="price-btn">1 ЧАС — 250₽</div>
+                            <div class="price-btn highlight">НОЧЬ — 1300₽</div>
                         </div>
                     </div>
 
@@ -88,31 +89,27 @@
             </div>
         </section>
 
-        <!-- Раздел Меню / Бар -->
+        <!-- Раздел Меню -->
         <section id="menu" class="section">
             <div class="container">
-                <h2 class="section-title neon-text-main">Снек-бар</h2>
+                <h2 class="section-title">СНЕК-БАР</h2>
                 <div class="menu-grid">
-                    <div class="menu-column">
-                        <h4 class="neon-text-small">Напитки</h4>
+                    <div class="menu-card">
+                        <h4 class="menu-header">DRINKS</h4>
                         <ul class="menu-list">
-                            <li><span>Red Bull / Adrenaline Rush</span> <span>180₽</span></li>
-                            <li><span>Monster Energy (Import)</span> <span>250₽</span></li>
-                            <li><span>Flash Up / Gorilla Energy</span> <span>120₽</span></li>
-                            <li><span>Coca-Cola / Pepsi 0.5L</span> <span>100₽</span></li>
-                            <li><span>Кофе (Латте / Капучино)</span> <span>150₽</span></li>
-                            <li><span>Чай Greenfield (в ассортименте)</span> <span>80₽</span></li>
+                            <li><span>Red Bull / Adrenaline</span> <span>180₽</span></li>
+                            <li><span>Monster Energy (USA)</span> <span>250₽</span></li>
+                            <li><span>Coca-Cola / Pepsi 0.5</span> <span>100₽</span></li>
+                            <li><span>Кофе / Чай</span> <span>120₽</span></li>
                         </ul>
                     </div>
-                    <div class="menu-column">
-                        <h4 class="neon-text-small">Еда и Снеки</h4>
+                    <div class="menu-card">
+                        <h4 class="menu-header">FOOD</h4>
                         <ul class="menu-list">
-                            <li><span>Сендвич (Курица / Ветчина)</span> <span>220₽</span></li>
-                            <li><span>Пицца кусок (Пепперони)</span> <span>160₽</span></li>
-                            <li><span>Pringles (Большая туба)</span> <span>210₽</span></li>
-                            <li><span>Lays / Doritos 80г</span> <span>120₽</span></li>
-                            <li><span>Snickers / Mars / Twix</span> <span>85₽</span></li>
-                            <li><span>Сухарики Flint / Хрустим</span> <span>70₽</span></li>
+                            <li><span>Сендвич с курицей</span> <span>220₽</span></li>
+                            <li><span>Пицца Пепперони (кусок)</span> <span>160₽</span></li>
+                            <li><span>Pringles XXL</span> <span>210₽</span></li>
+                            <li><span>Lays / Snickers</span> <span>90₽</span></li>
                         </ul>
                     </div>
                 </div>
@@ -121,25 +118,22 @@
     </main>
 
     <!-- Ассистент -->
-    <div class="ai-wrapper">
-        <div class="chat-window" id="chatWindow">
-            <div class="chat-header">
-                <div class="ai-status-dot"></div>
-                <span class="neon-text-small">NEO-ASSISTANT</span>
-                <button class="close-btn" onclick="toggleChat()">×</button>
+    <div class="ai-container">
+        <div class="chat-box" id="chatWindow">
+            <div class="chat-head">
+                <div class="online-dot"></div>
+                <span>NEO-AI ASSISTANT</span>
+                <button class="close-chat" onclick="toggleChat()">×</button>
             </div>
-            <div class="chat-body" id="chatBody">
-                <div class="ai-welcome">Чем могу помочь? Выбери вопрос:</div>
-            </div>
-            <div class="ai-options">
+            <div class="chat-main" id="chatBody"></div>
+            <div class="chat-footer">
                 <button onclick="askAI(1)">Свободные места</button>
-                <button onclick="askAI(2)">Акции и Скидки</button>
+                <button onclick="askAI(2)">Акции</button>
                 <button onclick="askAI(3)">Железо VIP</button>
                 <button onclick="askAI(4)">Бронь Ночь</button>
-                <button onclick="askAI(5)">Заказ в баре</button>
             </div>
         </div>
-        <button class="ai-trigger-btn" onclick="toggleChat()">AI</button>
+        <button class="ai-toggle" onclick="toggleChat()">AI</button>
     </div>
 
     <script src="script.js"></script>
