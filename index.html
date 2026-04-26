@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AREA-ZONE | Киберспортивная Арена</title>
-    <!-- Исправленная ссылка на шрифты -->
     <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -12,7 +11,7 @@
 
     <canvas id="neonCanvas"></canvas>
 
-    <!-- ШАПКА (Теперь с обоими логотипами) -->
+    <!-- ШАПКА -->
     <header class="header">
         <div class="header-container">
             <div class="header-side">
@@ -39,19 +38,19 @@
         <!-- ГЛАВНЫЙ ЭКРАН -->
         <section class="hero" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('main_banner_promo.jpg') no-repeat center/cover;">
             <div class="hero-content">
-                <h1 class="neon-title reveal">AREA-ZONE<br><span>EVOLUTION</span></h1>
-                <p class="hero-subtext reveal">ТВОЙ ПРОВОДНИК В МИР ПРО-ГЕЙМИНГА</p>
+                <h1 class="neon-title">AREA-ZONE<br><span>EVOLUTION</span></h1>
+                <p class="hero-subtext">ТВОЙ ПРОВОДНИК В МИР ПРО-ГЕЙМИНГА</p>
             </div>
         </section>
 
         <!-- РАЗДЕЛ О НАС -->
-        <section id="about" class="section reveal">
+        <section id="about" class="section">
             <div class="container">
                 <h2 class="section-title">О НАС</h2>
                 <div class="about-flex">
                     <div class="about-text">
-                        <p class="bold-text">AREA-ZONE — это технологичное пространство для тех, кто не привык к компромиссам.</p>
-                        <p>Мы собрали лучшие решения: от мониторов 360Hz до кастомных кресел. У нас ты найдешь профи-сервис и атмосферу абсолютного погружения.</p>
+                        <p class="bold-text">AREA-ZONE — это не просто компьютерный клуб, это технологичное пространство для тех, кто не привык к компромиссам.</p>
+                        <p>Мы собрали лучшие решения в одном месте: от сверхбыстрых мониторов 360Hz до кастомных игровых кресел. У нас ты найдешь единомышленников, профессиональный сервис и атмосферу абсолютного погружения.</p>
                         <div class="about-stats">
                             <div class="stat-item"><span>50+</span><br>Мощных ПК</div>
                             <div class="stat-item"><span>24/7</span><br>Режим работы</div>
@@ -65,19 +64,20 @@
             </div>
         </section>
 
-        <!-- ЗОНЫ И ЖЕЛЕЗО -->
+        <!-- ЗОНЫ И ЖЕЛЕЗО (С твоими фото) -->
         <section id="prices" class="section">
             <div class="container">
-                <h2 class="section-title reveal">ИГРОВЫЕ ЗОНЫ</h2>
+                <h2 class="section-title">ИГРОВЫЕ ЗОНЫ</h2>
                 <div class="zones-grid">
                     
                     <!-- Standard -->
-                    <div class="price-card reveal">
+                    <div class="price-card">
                         <img src="standard_photo.jpg" alt="Standard Zone" class="card-img">
                         <h3 class="card-name">STANDARD ZONE</h3>
                         <div class="specs-box">
                             <div class="spec-line"><strong>CPU:</strong> Core i5-13400F</div>
                             <div class="spec-line"><strong>GPU:</strong> RTX 3060 12GB</div>
+                            <div class="spec-line"><strong>GEAR:</strong> HyperX + Logitech</div>
                             <img src="pc_standard_build.jpg" alt="Build" class="mini-spec-img">
                         </div>
                         <div class="card-footer">
@@ -87,13 +87,14 @@
                     </div>
 
                     <!-- VIP PRO -->
-                    <div class="price-card vip-border reveal">
+                    <div class="price-card vip-border">
                         <div class="premium-badge">ULTRA VIP</div>
                         <img src="vip_photo.jpg" alt="VIP Zone" class="card-img">
                         <h3 class="card-name">VIP PRO ROOM</h3>
                         <div class="specs-box">
                             <div class="spec-line"><strong>CPU:</strong> i9-14900K</div>
                             <div class="spec-line"><strong>GPU:</strong> RTX 4090 24GB</div>
+                            <div class="spec-line"><strong>GEAR:</strong> G Pro X Superlight 2</div>
                             <img src="pc_vip_build.jpg" alt="Build" class="mini-spec-img">
                         </div>
                         <div class="card-footer">
@@ -102,13 +103,14 @@
                         </div>
                     </div>
 
-                    <!-- PS5 -->
-                    <div class="price-card reveal">
+                    <!-- PS5 ZONE -->
+                    <div class="price-card">
                         <img src="ps5_photo.jpg" alt="PS5 Zone" class="card-img">
                         <h3 class="card-name">PS5 LOUNGE</h3>
                         <div class="specs-box">
                             <div class="spec-line"><strong>Console:</strong> PlayStation 5 Slim</div>
                             <div class="spec-line"><strong>TV:</strong> OLED 4K 120Hz 65"</div>
+                            <div class="spec-line"><strong>Games:</strong> FC 24, UFC 5, MK1</div>
                         </div>
                         <div class="card-footer">
                             <div class="price-btn">1 ЧАС — 200₽</div>
@@ -120,104 +122,71 @@
             </div>
         </section>
 
-        <!-- БАР (Исправленный) -->
-<section id="menu" class="section">
-    <div class="container menu-center-fix">
-        <h2 class="section-title reveal">AREA-ZONE BAR</h2>
-        
-        <div class="menu-container-layout">
-            <div class="menu-image-side reveal">
-                <img src="menu_items.jpg" alt="Бар" class="menu-banner-img">
-            </div>
-
-            <div class="menu-grid reveal">
-                <div class="menu-card">
-                    <h4 class="menu-header">ЭНЕРГИЯ</h4>
-                    <ul class="menu-list">
-                        <li><span>Red Bull / Adrenaline</span> <span>180₽</span></li>
-                        <li><span>Monster Energy</span> <span>260₽</span></li>
-                        <li><span>Gorilla / Flash Up</span> <span>120₽</span></li>
-                    </ul>
-                </div>
-                <div class="menu-card">
-                    <h4 class="menu-header">ЕДА</h4>
-                    <ul class="menu-list">
-                        <li><span>Сендвич</span> <span>220₽</span></li>
-                        <li><span>Пицца Пепперони</span> <span>160₽</span></li>
-                        <li><span>Snickers / Mars</span> <span>90₽</span></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-        <!-- ФОРМА БРОНИРОВАНИЯ -->
-        <section id="booking" class="section reveal">
+        <!-- БАР (Расширенный ассортимент) -->
+        <section id="menu" class="section menu-bg">
             <div class="container">
-                <div class="booking-card">
-                    <h2 class="section-title" style="margin-bottom: 20px;">БРОНЬ ОНЛАЙН</h2>
-                    <form class="booking-form">
-                        <input type="text" placeholder="Ваше имя" required>
-                        <input type="tel" placeholder="+7 (___) ___-__-__" required>
-                        <button type="submit" class="btn-primary">ЗАБРОНИРОВАТЬ МЕСТО</button>
-                    </form>
+                <h2 class="section-title">AREA-ZONE BAR</h2>
+                <img src="menu_items.jpg" alt="Бар" class="menu-banner-img">
+                <div class="menu-grid">
+                    <div class="menu-card">
+                        <h4 class="menu-header">ЭНЕРГИЯ</h4>
+                        <ul class="menu-list">
+                            <li><span>Red Bull / Adrenaline 0.5</span> <span>180₽</span></li>
+                            <li><span>Monster Energy (USA/UK)</span> <span>260₽</span></li>
+                            <li><span>Gorilla / Flash Up</span> <span>120₽</span></li>
+                            <li><span>Burn (в ассортименте)</span> <span>150₽</span></li>
+                        </ul>
+                    </div>
+                    <div class="menu-card">
+                        <h4 class="menu-header">НАПИТКИ</h4>
+                        <ul class="menu-list">
+                            <li><span>Кола / Пепси / Добрый</span> <span>100₽</span></li>
+                            <li><span>Холодный чай Lipton/Fuze</span> <span>110₽</span></li>
+                            <li><span>Кофе (Латте/Капучино)</span> <span>140₽</span></li>
+                            <li><span>Минеральная вода 0.5</span> <span>70₽</span></li>
+                        </ul>
+                    </div>
+                    <div class="menu-card">
+                        <h4 class="menu-header">СНЕКИ</h4>
+                        <ul class="menu-list">
+                            <li><span>Pringles (в ассортименте)</span> <span>210₽</span></li>
+                            <li><span>Lays / Doritos (Large)</span> <span>140₽</span></li>
+                            <li><span>Сухарики Flint/Хрустим</span> <span>80₽</span></li>
+                            <li><span>Фисташки / Арахис</span> <span>180₽</span></li>
+                        </ul>
+                    </div>
+                    <div class="menu-card">
+                        <h4 class="menu-header">ЕДА</h4>
+                        <ul class="menu-list">
+                            <li><span>Сендвич (Курица/Ветчина)</span> <span>220₽</span></li>
+                            <li><span>Пицца кусок (Пепперони)</span> <span>160₽</span></li>
+                            <li><span>Хот-дог Классический</span> <span>180₽</span></li>
+                            <li><span>Snickers / Mars / Twix</span> <span>90₽</span></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- ФУТЕР -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-info">
-                    <div class="main-logo">AREA-<span>ZONE</span></div>
-                    <p>Лучший игровой клуб. Работаем 24/7.</p>
-                </div>
-                <div class="footer-contacts">
-                    <h4>КОНТАКТЫ</h4>
-                    <p>📍 ул. Киберспортивная, 10</p>
-                    <p>📞 +7 (999) 000-00-00</p>
-                </div>
-                <div class="footer-social">
-                    <h4>МЫ В СЕТИ</h4>
-                    <div class="social-links">
-                        <a href="#">VK</a> <a href="#">TG</a>
-                    </div>
-                </div>
+    <!-- АССИСТЕНТ -->
+    <div class="ai-container">
+        <div class="chat-box" id="chatWindow">
+            <div class="chat-head">
+                <div class="online-dot"></div>
+                <span>AREA-AI ASSISTANT</span>
+                <button class="close-chat" onclick="toggleChat()">×</button>
+            </div>
+            <div class="chat-main" id="chatBody"></div>
+            <div class="chat-footer">
+                <button onclick="askAI(1)">Свободно?</button>
+                <button onclick="askAI(2)">Акции</button>
+                <button onclick="askAI(3)">Железо</button>
+                <button onclick="askAI(4)">Бронь</button>
             </div>
         </div>
-    </footer>
-
-   <!-- АССИСТЕНТ (PREMIUM LOOK) -->
-<div class="ai-container">
-    <div class="chat-box glass-effect" id="chatWindow">
-        <div class="chat-head">
-            <div class="ai-info">
-                <div class="online-pulse"></div>
-                <div class="ai-text">
-                    <span class="ai-name">AREA-ZONE AI</span>
-                    <span class="ai-status">Online • Smart Assistant</span>
-                </div>
-            </div>
-            <button class="close-chat" onclick="toggleChat()">×</button>
-        </div>
-        <div class="chat-main" id="chatBody"></div>
-        <div class="chat-footer">
-            <button class="ai-btn-chip" onclick="askAI(1)">⚡ Свободно?</button>
-            <button class="ai-btn-chip" onclick="askAI(2)">🎁 Акции</button>
-            <button class="ai-btn-chip" onclick="askAI(3)">🖥️ Железо</button>
-            <button class="ai-btn-chip" onclick="askAI(4)">📅 Бронь</button>
-        </div>
+        <button class="ai-toggle" onclick="toggleChat()">AI</button>
     </div>
-    <button class="ai-toggle-premium" onclick="toggleChat()">
-        <span class="ai-glow"></span>
-        <span class="ai-label">AI</span>
-    </button>
-</div>
-
 
     <script src="script.js"></script>
 </body>
