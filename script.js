@@ -18,7 +18,7 @@ class Particle {
         this.size = Math.random() * 2 + 1;
         this.speedX = Math.random() * 0.4 - 0.2;
         this.speedY = Math.random() * 0.4 - 0.2;
-        // Цвета темы: Голубой и Фиолетовый
+        // Цвета AREA-ZONE: Голубой и Фиолетовый
         this.color = Math.random() > 0.5 ? '#00f3ff' : '#ff00ff';
         this.alpha = Math.random() * 0.5;
     }
@@ -37,7 +37,7 @@ class Particle {
     }
 }
 
-// Создаем 70 частиц для глубины фона
+// Генерируем 70 частиц
 for (let i = 0; i < 70; i++) {
     particles.push(new Particle());
 }
@@ -52,19 +52,17 @@ function animate() {
 }
 animate();
 
-// --- 2. ЛОГИКА AI-АССИСТЕНТА ---
+// --- 2. ЛОГИКА AREA-AI ASSISTANT ---
 const chatWindow = document.getElementById('chatWindow');
 const chatBody = document.getElementById('chatBody');
 
 function toggleChat() {
-    // Переключаем видимость окна
     if (chatWindow.style.display === 'flex') {
         chatWindow.style.display = 'none';
     } else {
         chatWindow.style.display = 'flex';
-        // Если чат пустой, добавляем приветствие
         if (chatBody.innerHTML === "") {
-            addMessage("Привет! Я NEO-AI. Выбери любой вопрос ниже, и я помогу тебе!", 'bot');
+            addMessage("Добро пожаловать в AREA-ZONE! Я твой цифровой помощник. Чем могу быть полезен?", 'bot');
         }
     }
 }
@@ -78,22 +76,21 @@ function askAI(id) {
     let response = "";
     switch(id) {
         case 1:
-            response = "Прямо сейчас свободно 12 мест в Standard и 2 в VIP PRO. Поспеши!";
+            response = "В данный момент свободно 14 мест в Standard и 2 в VIP PRO. Рекомендую бронировать прямо сейчас!";
             break;
         case 2:
-            response = "У нас акция: 3 часа + 1 в подарок до 16:00! А именинникам скидка 50%.";
+            response = "У нас мощные акции: 'Утренний Скилл' (скидка 30% до 12:00) и пакет 'Ночной Кат' (энергетик в подарок)!";
             break;
         case 3:
-            response = "В VIP PRO: RTX 4090 Rog Strix, i9-14900K и девайсы Logitech G Pro Superlight 2.";
+            response = "Наше железо — это топ: RTX 4090, процессоры i9-14900K, мониторы 360Hz и полная периферия Logitech G Pro.";
             break;
         case 4:
-            response = "Ночной пакет (22:00 - 08:00) всего 900₽ в Standard. Энергетик в подарок!";
+            response = "Для бронирования места позвони нам по номеру или напиши в наш Telegram. Мы работаем 24/7!";
             break;
         default:
-            response = "Свяжись с нашим админом для уточнения деталей.";
+            response = "Свяжись с администратором AREA-ZONE для уточнения информации.";
     }
 
-    // Имитация печатания
     setTimeout(() => {
         addMessage(response, 'bot');
     }, 600);
@@ -102,47 +99,47 @@ function askAI(id) {
 function addMessage(text, sender) {
     const msgDiv = document.createElement('div');
     msgDiv.style.margin = '10px 0';
-    msgDiv.style.padding = '12px';
-    msgDiv.style.borderRadius = '12px';
-    msgDiv.style.fontSize = '0.85rem';
-    msgDiv.style.fontWeight = '700'; // Делаем текст в чате жирным и читаемым
+    msgDiv.style.padding = '12px 16px';
+    msgDiv.style.borderRadius = '15px';
+    msgDiv.style.fontSize = '0.9rem';
+    msgDiv.style.fontWeight = '700'; // Жирный премиальный текст
     msgDiv.style.maxWidth = '85%';
     msgDiv.style.animation = 'fadeIn 0.3s ease forwards';
 
     if (sender === 'user') {
         msgDiv.style.background = 'rgba(255,255,255,0.05)';
-        msgDiv.style.borderRight = '3px solid #fff';
+        msgDiv.style.borderRight = '4px solid #fff';
         msgDiv.style.alignSelf = 'flex-end';
         msgDiv.style.color = '#fff';
-        msgDiv.innerHTML = `<small style="opacity: 0.5;">ТЫ:</small><br>${text}`;
+        msgDiv.innerHTML = `<small style="opacity: 0.5; font-size: 0.6rem;">ТЫ:</small><br>${text}`;
     } else {
         msgDiv.style.background = 'rgba(0, 243, 255, 0.1)';
-        msgDiv.style.borderLeft = '3px solid #00f3ff';
+        msgDiv.style.borderLeft = '4px solid #00f3ff';
         msgDiv.style.alignSelf = 'flex-start';
         msgDiv.style.color = '#eee';
-        msgDiv.innerHTML = `<small style="color: #00f3ff;">NEO-AI:</small><br>${text}`;
+        msgDiv.innerHTML = `<small style="color: #00f3ff; font-weight: 900; font-size: 0.6rem;">AREA-AI:</small><br>${text}`;
     }
 
     chatBody.appendChild(msgDiv);
     chatBody.scrollTop = chatBody.scrollHeight;
 }
 
-// --- 3. ПЛАВНЫЙ СКРОЛЛ ПО КЛИКУ ---
+// --- 3. ПЛАВНЫЙ СКРОЛЛ И ЭФФЕКТЫ ---
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
             window.scrollTo({
-                top: target.offsetTop - 80, // Оставляем место для шапки
+                top: target.offsetTop - 80,
                 behavior: 'smooth'
             });
         }
     });
 });
 
-// Добавляем эффект появления элементов при скролле
-const observer = new IntersectionObserver((entries) => {
+// Анимация появления контента при прокрутке
+const scrollObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
@@ -151,9 +148,9 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.price-card, .menu-card').forEach(el => {
+document.querySelectorAll('.price-card, .menu-card, .about-flex').forEach(el => {
     el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = '0.6s ease-out';
-    observer.observe(el);
+    el.style.transform = 'translateY(40px)';
+    el.style.transition = '0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+    scrollObserver.observe(el);
 });
