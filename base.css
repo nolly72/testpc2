@@ -1,0 +1,98 @@
+/* Подключение премиальных шрифтов */
+@import url('https://googleapis.com');
+
+:root {
+    --dark: #050508;
+    --radius: 40px;
+    --transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Обнуление и базовые настройки */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 900 !important; /* Принудительная жирность для всех элементов */
+    text-transform: uppercase;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--dark);
+    color: #fff;
+    overflow-x: hidden;
+    line-height: 1.4;
+}
+
+/* Основной контейнер */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 120px 30px;
+}
+
+/* Навигационная панель */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(5, 5, 8, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-container {
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+/* Адаптивность под мобильные устройства */
+@media (max-width: 1100px) {
+    .nav-links {
+        display: none; /* Скрываем меню на телефонах для чистоты */
+    }
+    .container {
+        padding: 80px 20px;
+    }
+    .nav-container {
+        justify-content: center;
+    }
+}
+
+/* Вспомогательные классы для сетки */
+main {
+    display: block;
+    width: 100%;
+}
+
+section {
+    position: relative;
+    width: 100%;
+}
